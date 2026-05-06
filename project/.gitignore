@@ -1,0 +1,9 @@
+# Build artifacts (none — pure static)
+.DS_Store
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Design canvas state sidecar (don't ship the editing state)
+.design-canvas.state.json
