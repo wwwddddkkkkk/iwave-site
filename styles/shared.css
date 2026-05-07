@@ -1,0 +1,47 @@
+/* iwave Wavekart — design tokens */
+
+:root {
+  --ivory: #F4F1EC;
+  --ivory-2: #EBE6DD;
+  --ink: #0E0E0C;
+  --ink-2: #1A1A17;
+  --warm-grey: #8A857C;
+  --warm-grey-2: #C8C2B6;
+  --hairline: rgba(14,14,12,.12);
+  --hairline-light: rgba(244,241,236,.16);
+  --accent-brass: #9B7E4A;
+  --accent-bronze: #6E5A3A;
+}
+
+/* Animated water background — shown in hero when no video is loaded */
+.iw-water {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+.iw-water::before, .iw-water::after {
+  content: '';
+  position: absolute;
+  inset: -20% -10% -10% -10%;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 70% 30%, rgba(155,126,74,.18), transparent 65%),
+    linear-gradient(180deg, #0a1620 0%, #08111a 50%, #060c14 100%);
+  z-index: -2;
+}
+.iw-water::after {
+  background:
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 8px,
+      rgba(255,255,255,.04) 8px 9px,
+      transparent 9px 24px
+    );
+  z-index: -1;
+  animation: iw-wave 12s linear infinite;
+}
+@keyframes iw-wave {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-40px); }
+}

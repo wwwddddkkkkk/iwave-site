@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>iwave — Wavekart</title>
+  <meta name="description" content="The first electric jet go-kart. Engineered at Yale, refined for the open coast.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/shared.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-weight: 300;
+      color: #0E0E0C;
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; cursor: pointer; }
+    button { font-family: inherit; cursor: pointer; }
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+    }
+    .nav-logo {
+      font-size: 13px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 12px;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+    }
+    .nav-links a,
+    .nav-actions span {
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover,
+    .nav-actions span:hover { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 760px;
+      overflow: hidden;
+      color: #fff;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Animated water fallback (shown when no video file is present) */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%);
+    }
+    .hero-badge {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 60px 80px;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-size: clamp(72px, 10vw, 156px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      font-weight: 200;
+      margin-bottom: 36px;
+    }
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .hero-tagline {
+      font-size: 14px;
+      opacity: 0.85;
+      max-width: 380px;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-primary {
+      background: #fff;
+      color: var(--ink);
+      border: 0;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: border-color .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.9); }
+
+    /* ── SPEC STRIP ── */
+    .spec-strip {
+      background: var(--ink);
+      color: #fff;
+      padding: 20px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .spec-strip-dot { opacity: 0.35; }
+
+    /* ── INTRO ── */
+    .intro {
+      padding: 140px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 32px;
+    }
+    .intro-quote {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.3;
+      font-weight: 200;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    /* ── MODELS ── */
+    .models {
+      padding: 40px 60px 100px;
+    }
+    .models-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .models-header h2 {
+      font-size: 64px;
+      font-weight: 200;
+      letter-spacing: -0.03em;
+    }
+    .toggle-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .toggle {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      background: #F2F1ED;
+      border-radius: 999px;
+    }
+    .toggle-btn {
+      padding: 10px 28px;
+      border-radius: 999px;
+      border: 0;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--ink);
+      transition: background .35s, color .35s;
+    }
+    .toggle-btn.active {
+      background: var(--ink);
+      color: #fff;
+    }
+    .model-card {
+      background: #fff;
+      border: 1px solid var(--hairline);
+      border-radius: 24px;
+      padding: 60px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      box-shadow: 0 30px 80px -40px rgba(14,14,12,0.18);
+    }
+    .model-name {
+      font-size: 72px;
+      font-weight: 200;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 0 0 24px;
+    }
+    .model-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      margin-bottom: 32px;
+    }
+    .color-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 14px;
+    }
+    .color-swatches {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--hairline);
+      cursor: pointer;
+      transition: border .2s;
+      padding: 0;
+    }
+    .swatch.active { border: 2px solid var(--ink); }
+    .model-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-ink {
+      background: var(--ink);
+      color: #fff;
+      border: 0;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+    .btn-ink:hover { opacity: 0.8; }
+    .btn-text {
+      background: transparent;
+      color: var(--ink);
+      border: 0;
+      font-size: 12px;
+    }
+    .kart-viewer {
+      position: relative;
+      aspect-ratio: 4/3;
+      background: #FAFAF8;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .kart-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      z-index: 2;
+    }
+    /* CSS fallback kart silhouette */
+    .kart-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .kart-body {
+      position: relative;
+      background: var(--kart-color, #d9d4c8);
+      border-radius: 50% 50% 14% 14% / 60% 60% 18% 18%;
+      box-shadow:
+        inset 0 -8px 20px rgba(0,0,0,.18),
+        inset 0 4px 8px rgba(255,255,255,.4),
+        0 30px 60px -20px rgba(0,0,0,.4);
+      transform: skewX(-3deg);
+      transition: width .5s cubic-bezier(.2,.7,.3,1), height .5s cubic-bezier(.2,.7,.3,1), background .4s;
+    }
+    .kart-body::before {
+      content: '';
+      position: absolute;
+      top: 18%; left: 30%;
+      width: 40%; height: 50%;
+      background: var(--ink);
+      border-radius: 50% 50% 30% 30% / 80% 80% 30% 30%;
+      opacity: 0.85;
+    }
+    .kart-body::after {
+      content: '';
+      position: absolute;
+      bottom: -22%; left: -10%; right: -10%;
+      height: 26%;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.4), transparent 70%);
+      filter: blur(3px);
+    }
+    .kart-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity .5s cubic-bezier(.2,.7,.3,1);
+    }
+    .kart-photo.loaded { opacity: 1; }
+
+    /* ── SPECS ── */
+    .specs-section {
+      padding: 120px 60px;
+      border-top: 1px solid var(--hairline);
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 80px;
+    }
+    .spec-item {
+      border-top: 1px solid var(--ink);
+      padding-top: 24px;
+      padding-right: 32px;
+    }
+    .spec-item + .spec-item {
+      border-left: 1px solid var(--hairline);
+      padding-left: 32px;
+    }
+    .spec-number {
+      font-size: 80px;
+      font-weight: 200;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .spec-unit {
+      font-size: 18px;
+      color: var(--warm-grey);
+      font-weight: 300;
+    }
+    .spec-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-top: 16px;
+    }
+
+    /* ── COMPARE ── */
+    .compare-section {
+      padding: 120px 60px;
+      border-top: 1px solid var(--hairline);
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 60px;
+    }
+    .compare-card {
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 36px;
+      background: #fff;
+    }
+    .compare-card h3 {
+      font-size: 36px;
+      font-weight: 200;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+    .compare-card-desc {
+      color: var(--ink-2);
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+    .compare-spec-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-top: 1px solid var(--hairline);
+      font-size: 13px;
+    }
+    .compare-spec-list li span:first-child { color: var(--warm-grey); }
+
+    /* ── LIFESTYLE ── */
+    .lifestyle-section { padding: 120px 0; }
+    .lifestyle-header { padding: 0 60px; margin-bottom: 60px; }
+    .lifestyle-header h2 {
+      font-size: 56px;
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      margin-top: 16px;
+    }
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .lifestyle-tile {
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+    }
+    .lifestyle-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-section {
+      padding: 120px 60px;
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+    }
+    .testimonial-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 40px;
+    }
+    .testimonial-quote {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 200;
+      letter-spacing: -0.02em;
+      line-height: 1.4;
+      max-width: 1000px;
+      margin: 0 auto 32px;
+      text-wrap: balance;
+    }
+    .testimonial-attribution {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    /* ── ORIGIN ── */
+    .origin-section {
+      padding: 120px 60px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .origin-grid h2 {
+      font-size: 56px;
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      margin: 0 0 28px;
+      line-height: 1.05;
+    }
+    .origin-grid p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-2);
+    }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      padding: 100px 60px;
+      text-align: center;
+    }
+    .newsletter-section h3 {
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+    .newsletter-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+      gap: 8px;
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+      outline: 0;
+      font-family: inherit;
+      font-size: 13px;
+    }
+    .newsletter-input:focus { border-color: rgba(14,14,12,0.4); }
+    .newsletter-btn {
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      transition: opacity .2s;
+    }
+    .newsletter-btn:hover { opacity: 0.8; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 60px 60px 30px;
+      border-top: 1px solid var(--ink);
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    .footer-brand h4 {
+      font-size: 14px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .footer-brand p {
+      font-size: 12px;
+      color: var(--warm-grey);
+      max-width: 280px;
+    }
+    .footer-col h5 {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .footer-col li { cursor: pointer; opacity: 0.75; transition: opacity .2s; }
+    .footer-col li:hover { opacity: 1; }
+    .footer-bottom {
+      padding: 20px 60px 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--warm-grey);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ── PLACEHOLDER TILES (design canvas look, before real photos) ── */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0,
+          transparent 18px,
+          rgba(0,0,0,0.04) 18px,
+          rgba(0,0,0,0.04) 19px
+        ),
+        linear-gradient(180deg, #e9e3d8, #d8d1c2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(14,14,12,0.55);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-content { padding: 0 28px 56px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .model-card { grid-template-columns: 1fr; }
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
+      .specs-grid .spec-item:nth-child(3) { border-left: 0; padding-left: 0; margin-top: 40px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .origin-grid { grid-template-columns: 1fr; gap: 40px; }
+      footer { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .lifestyle-grid { grid-template-columns: 1fr; }
+      .models-header h2,
+      .specs-section h2,
+      .compare-section h2,
+      .lifestyle-header h2 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">IWAVE</div>
+    <nav class="nav-links">
+      <a href="#models">Wavekart S</a>
+      <a href="#models">Wavekart X</a>
+      <a href="#compare">Compare</a>
+      <a href="#specs">Technology</a>
+      <a href="#footer">Support</a>
+    </nav>
+    <div class="nav-actions">
+      <span>Account</span>
+      <span>Bag</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <!--
+    DROP YOUR VIDEO HERE:
+    Replace the <source src="..."> path with your file.
+    Also set poster="assets/hero-poster.jpg" (a still frame for before the video loads).
+    Recommended: MP4 H.264, ≤ 20 MB, 1920×1080.
+  -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <!-- Animated water — visible when no video file is present -->
+  <div class="hero-bg iw-water"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-badge">◉ Ocean Footage</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">IWAVE Wavekart · 2026</div>
+    <h1 class="hero-headline">On water.<br>Reimagined.</h1>
+    <div class="hero-bottom">
+      <p class="hero-tagline">
+        Electric. Silent. Instant. The first jet go-kart engineered
+        for the water — not adapted to it.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Reserve</button>
+        <button class="btn-ghost">Watch the film →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC STRIP -->
+<div class="spec-strip">
+  <span>50 KM/H</span>
+  <span class="spec-strip-dot">·</span>
+  <span>60 KG HULL</span>
+  <span class="spec-strip-dot">·</span>
+  <span>SILENT EV DRIVE</span>
+  <span class="spec-strip-dot">·</span>
+  <span>QUICK-CHANGE BATTERY</span>
+  <span class="spec-strip-dot">·</span>
+  <span>0 EMISSIONS</span>
+</div>
+
+<!-- INTRO -->
+<section class="intro reveal">
+  <div class="section-label">Introduction</div>
+  <p class="intro-quote">
+    Hop in. Push the throttle. The water responds —
+    quietly, precisely, without compromise.
+  </p>
+</section>
+
+<!-- MODEL TOGGLE -->
+<section class="models" id="models">
+  <div class="models-header reveal">
+    <div class="section-label" style="margin-bottom: 16px;">Choose Your Craft</div>
+    <h2>Two models. One language.</h2>
+  </div>
+
+  <div class="toggle-wrap">
+    <div class="toggle">
+      <button class="toggle-btn active" data-model="S">Wavekart S</button>
+      <button class="toggle-btn" data-model="X">Wavekart X</button>
+    </div>
+  </div>
+
+  <div class="model-card">
+    <div class="model-info">
+      <div class="section-label" id="model-size-label">COMPACT · 60 KG</div>
+      <h3 class="model-name">Wavekart <span id="model-letter">S</span></h3>
+      <p class="model-desc" id="model-desc">
+        For the solo adventurer. Light, fast, transportable.
+        Charge in your garage, drift by lunch.
+      </p>
+      <div class="color-label">FINISH · <span id="color-name">PORCELAIN</span></div>
+      <div class="color-swatches" id="swatches"></div>
+      <div class="model-ctas">
+        <button class="btn-ink">Buy · $8,800</button>
+        <button class="btn-text">Learn more →</button>
+      </div>
+    </div>
+
+    <div class="kart-viewer">
+      <div class="kart-badge">MODEL · <span id="kart-model-badge">S</span></div>
+      <!-- CSS fallback silhouette -->
+      <div class="kart-fallback">
+        <div class="kart-body" id="kart-body" style="width:60%;height:38%;"></div>
+      </div>
+      <!-- Real photo (crossfades in when the file exists) -->
+      <img class="kart-photo" id="kart-photo" src="" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs-section" id="specs">
+  <div class="reveal">
+    <div class="section-label">By the Numbers</div>
+    <h2 class="font-display" style="font-size:64px;font-weight:200;letter-spacing:-0.03em;margin: 16px 0 0;max-width:700px;">
+      Every figure, considered.
+    </h2>
+  </div>
+  <div class="specs-grid reveal" style="transition-delay:.15s">
+    <div class="spec-item">
+      <div class="spec-number">
+        <span class="count-up" data-to="50">0</span>
+        <span class="spec-unit">km/h</span>
+      </div>
+      <div class="spec-label">Top Speed</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-number">
+        <span class="count-up" data-to="60">0</span>
+        <span class="spec-unit">kg</span>
+      </div>
+      <div class="spec-label">Hull Weight</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-number">
+        <span class="count-up" data-to="90">0</span>
+        <span class="spec-unit">min</span>
+      </div>
+      <div class="spec-label">Run Time</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-number">
+        <span class="count-up" data-to="0">0</span>
+        <span class="spec-unit">g</span>
+      </div>
+      <div class="spec-label">CO₂ Emitted</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-section" id="compare">
+  <div class="reveal">
+    <div class="section-label">Compare</div>
+    <h2 class="font-display" style="font-size:56px;font-weight:200;letter-spacing:-0.03em;margin-top:16px;">S or X.</h2>
+  </div>
+  <div class="compare-grid reveal" style="transition-delay:.15s">
+    <div class="compare-card">
+      <div class="section-label" style="margin-bottom:12px;">MODEL · S</div>
+      <h3>Wavekart S</h3>
+      <p class="compare-card-desc">For the solo adventurer.</p>
+      <div class="img-placeholder" style="aspect-ratio:4/3;border-radius:8px;margin-bottom:28px;">
+        WAVEKART S · STUDIO
+      </div>
+      <ul class="compare-spec-list">
+        <li><span>Length</span><span>2.1 m</span></li>
+        <li><span>Weight</span><span>60 kg</span></li>
+        <li><span>Best for</span><span>SUV transport</span></li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <div class="section-label" style="margin-bottom:12px;">MODEL · X</div>
+      <h3>Wavekart X</h3>
+      <p class="compare-card-desc">For shared shorelines.</p>
+      <div class="img-placeholder" style="aspect-ratio:4/3;border-radius:8px;margin-bottom:28px;">
+        WAVEKART X · STUDIO
+      </div>
+      <ul class="compare-spec-list">
+        <li><span>Length</span><span>2.6 m</span></li>
+        <li><span>Weight</span><span>92 kg</span></li>
+        <li><span>Best for</span><span>Yacht &amp; resort</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section class="lifestyle-section">
+  <div class="lifestyle-header reveal">
+    <div class="section-label">In Practice</div>
+    <h2>Built for the open coast.</h2>
+  </div>
+  <div class="lifestyle-grid">
+    <!--
+      Replace each .img-placeholder div with:
+        <img src="assets/lifestyle/yacht.jpg" alt="Yacht tender" style="width:100%;height:100%;object-fit:cover;">
+    -->
+    <div class="lifestyle-tile">
+      <div class="img-placeholder">Yacht Tender</div>
+    </div>
+    <div class="lifestyle-tile">
+      <div class="img-placeholder">Resort Guest</div>
+    </div>
+    <div class="lifestyle-tile">
+      <div class="img-placeholder">Race with Friends</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="testimonial-label">Testimony</div>
+  <p class="testimonial-quote">
+    "No gas smell. Reef-friendly. Charge and go.
+    The ideal choice for an eco-conscious ride."
+  </p>
+  <div class="testimonial-attribution">— Rober S. · Wavekart Owner</div>
+</section>
+
+<!-- ORIGIN -->
+<section class="origin-section" id="about">
+  <div class="origin-grid reveal">
+    <div>
+      <div class="section-label" style="margin-bottom:24px;">Origin · New Haven</div>
+      <h2>Engineered<br>at Yale.</h2>
+      <p>
+        IWAVE was born inside a Yale engineering laboratory — a quiet
+        question about whether watercraft could be both intimate and
+        electric. Today, that thesis is in production.
+      </p>
+    </div>
+    <div class="img-placeholder" style="aspect-ratio:4/5;border-radius:8px;">
+      FOUNDER · STUDIO
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <h3 class="reveal">Never miss a wave.</h3>
+  <form class="newsletter-form reveal" style="transition-delay:.1s" onsubmit="return false;">
+    <input class="newsletter-input" type="email" placeholder="your@email.com" required>
+    <button class="newsletter-btn" type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-brand">
+    <h4>IWAVE</h4>
+    <p>Yale-born studio. Engineering the future of water.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Wavekart</h5>
+    <ul>
+      <li><a href="#models">S</a></li>
+      <li><a href="#models">X</a></li>
+      <li><a href="#compare">Compare</a></li>
+      <li><a href="#models">Reserve</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Company</h5>
+    <ul>
+      <li>About</li>
+      <li>Press</li>
+      <li>Journal</li>
+      <li>Careers</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Support</h5>
+    <ul>
+      <li>Inquiry</li>
+      <li>Dealers</li>
+      <li>Affiliate</li>
+      <li>FAQ</li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2026 IWAVE</span>
+  <span>New Haven · CT</span>
+</div>
+
+<script>
+  /* ── DATA ── */
+  const COLORS = [
+    { name: 'PORCELAIN', hex: '#d9d4c8', slug: 'porcelain' },
+    { name: 'OBSIDIAN',  hex: '#1a1a17', slug: 'obsidian'  },
+    { name: 'TITAN',     hex: '#7a7770', slug: 'titan'     },
+    { name: 'AMBER',     hex: '#c89645', slug: 'amber'     },
+    { name: 'AZURE',     hex: '#3d6b85', slug: 'azure'     },
+  ];
+
+  const MODEL_DATA = {
+    S: {
+      sizeLabel: 'COMPACT · 60 KG',
+      desc: 'For the solo adventurer. Light, fast, transportable. Charge in your garage, drift by lunch.',
+      bodyW: '60%', bodyH: '38%',
+    },
+    X: {
+      sizeLabel: 'GRAND · 92 KG',
+      desc: 'For the dock-bound. Larger hull, greater stability — designed for resorts, yachts, and shared shorelines.',
+      bodyW: '74%', bodyH: '44%',
+    },
+  };
+
+  /* ── STATE ── */
+  let currentModel = 'S';
+  let currentColor = COLORS[0];
+
+  /* ── DOM REFS ── */
+  const modelSizeLabel   = document.getElementById('model-size-label');
+  const modelLetter      = document.getElementById('model-letter');
+  const modelDesc        = document.getElementById('model-desc');
+  const colorName        = document.getElementById('color-name');
+  const kartBadge        = document.getElementById('kart-model-badge');
+  const kartBody         = document.getElementById('kart-body');
+  const kartPhoto        = document.getElementById('kart-photo');
+  const swatchContainer  = document.getElementById('swatches');
+
+  /* ── BUILD SWATCHES ── */
+  COLORS.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'swatch' + (c === currentColor ? ' active' : '');
+    btn.style.background = c.hex;
+    btn.title = c.name;
+    btn.setAttribute('aria-label', c.name);
+    btn.addEventListener('click', () => selectColor(c));
+    swatchContainer.appendChild(btn);
+  });
+
+  /* ── UPDATE KART PHOTO ── */
+  function updateKart() {
+    const src = `assets/wavekart/${currentModel.toLowerCase()}-${currentColor.slug}.png`;
+    const alt = `Wavekart ${currentModel} in ${currentColor.name}`;
+
+    // Reset photo to invisible first so the fade-in triggers on the new image
+    kartPhoto.classList.remove('loaded');
+    kartPhoto.alt = alt;
+
+    const tmp = new Image();
+    tmp.onload = () => {
+      kartPhoto.src = src;
+      // Small rAF delay lets the browser apply the opacity:0 before transitioning to 1
+      requestAnimationFrame(() => requestAnimationFrame(() => kartPhoto.classList.add('loaded')));
+    };
+    tmp.onerror = () => {
+      // No photo yet — CSS fallback stays visible
+    };
+    tmp.src = src;
+
+    // Update CSS fallback silhouette colour
+    const data = MODEL_DATA[currentModel];
+    kartBody.style.width  = data.bodyW;
+    kartBody.style.height = data.bodyH;
+    kartBody.style.setProperty('--kart-color', currentColor.hex);
+    kartBody.style.background = currentColor.hex;
+  }
+
+  /* ── SELECT MODEL ── */
+  function selectModel(model) {
+    currentModel = model;
+    const data = MODEL_DATA[model];
+    modelSizeLabel.textContent = data.sizeLabel;
+    modelLetter.textContent    = model;
+    kartBadge.textContent      = model;
+    modelDesc.textContent      = data.desc;
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.model === model);
+    });
+    updateKart();
+  }
+
+  /* ── SELECT COLOR ── */
+  function selectColor(c) {
+    currentColor = c;
+    colorName.textContent = c.name;
+    document.querySelectorAll('.swatch').forEach((btn, i) => {
+      btn.classList.toggle('active', COLORS[i] === c);
+    });
+    updateKart();
+  }
+
+  /* ── MODEL TOGGLE CLICK ── */
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => selectModel(btn.dataset.model));
+  });
+
+  // Init
+  updateKart();
+
+  /* ── COUNT-UP ANIMATION ── */
+  function animateCount(el) {
+    const target   = parseInt(el.dataset.to, 10);
+    const duration = 1400;
+    const start    = performance.now();
+
+    if (target === 0) return; // already shows 0
+
+    function tick(now) {
+      const p      = Math.min(1, (now - start) / duration);
+      const eased  = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ── INTERSECTION OBSERVER for count-up & reveal ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+
+      if (el.classList.contains('count-up')) {
+        animateCount(el);
+        io.unobserve(el);
+      }
+
+      if (el.classList.contains('reveal')) {
+        el.classList.add('visible');
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  document.querySelectorAll('.count-up, .reveal').forEach(el => io.observe(el));
+
+  /* ── VIDEO HERO: hide bg placeholder once video loads ── */
+  const video = document.querySelector('.hero-video');
+  const heroBg = document.querySelector('.hero-bg');
+  if (video) {
+    video.addEventListener('canplay', () => {
+      heroBg.style.display = 'none';
+    }, { once: true });
+  }
+</script>
+</body>
+</html>
