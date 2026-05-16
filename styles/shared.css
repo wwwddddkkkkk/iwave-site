@@ -1,4 +1,4 @@
-/* iwave Wavekart — design tokens */
+/* iwave Wavekart — shared luxury system */
 
 :root {
   --ivory: #F4F1EC;
@@ -13,10 +13,62 @@
   --accent-bronze: #6E5A3A;
 }
 
-/* Animated water background — shown in hero when no video is loaded */
-.iw-water {
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap');
+
+.font-display { font-family: 'Manrope', system-ui, sans-serif; font-weight: 200; letter-spacing: -0.02em; }
+.font-body    { font-family: 'Manrope', system-ui, sans-serif; font-weight: 300; }
+.font-serif   { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+.font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 300; }
+
+.tracked-xl { letter-spacing: 0.42em; text-transform: uppercase; }
+.tracked-lg { letter-spacing: 0.32em; text-transform: uppercase; }
+.tracked-md { letter-spacing: 0.22em; text-transform: uppercase; }
+.tracked-sm { letter-spacing: 0.14em; text-transform: uppercase; }
+
+* { box-sizing: border-box; }
+
+/* Placeholder pattern for any "image goes here" panels */
+.iw-placeholder {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0,
+      transparent 18px,
+      rgba(0,0,0,0.04) 18px,
+      rgba(0,0,0,0.04) 19px
+    ),
+    linear-gradient(180deg, #e9e3d8, #d8d1c2);
+  position: relative;
+  overflow: hidden;
+}
+.iw-placeholder.dark {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0,
+      transparent 18px,
+      rgba(255,255,255,0.04) 18px,
+      rgba(255,255,255,0.04) 19px
+    ),
+    linear-gradient(180deg, #1a1a17, #0e0e0c);
+}
+.iw-placeholder .iw-placeholder-label {
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(14,14,12,.55);
+}
+.iw-placeholder.dark .iw-placeholder-label { color: rgba(244,241,236,.55); }
+
+/* The "video" hero — animated water lines instead of an actual video */
+.iw-water {
+  position: relative;
   overflow: hidden;
   isolation: isolate;
 }
@@ -42,6 +94,73 @@
   animation: iw-wave 12s linear infinite;
 }
 @keyframes iw-wave {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-40px); }
 }
+
+/* The kart silhouette — drawn with CSS, no SVG complexity */
+.iw-kart {
+  --kart-color: #d9d4c8;
+  --kart-shadow: rgba(0,0,0,.4);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iw-kart-body {
+  position: relative;
+  width: 62%;
+  height: 38%;
+  background: var(--kart-color);
+  border-radius: 50% 50% 14% 14% / 60% 60% 18% 18%;
+  box-shadow:
+    inset 0 -8px 20px rgba(0,0,0,.18),
+    inset 0 4px 8px rgba(255,255,255,.4),
+    0 30px 60px -20px var(--kart-shadow);
+  transform: skewX(-3deg);
+}
+.iw-kart-body::before {
+  /* cockpit */
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 30%;
+  width: 40%;
+  height: 50%;
+  background: var(--ink);
+  border-radius: 50% 50% 30% 30% / 80% 80% 30% 30%;
+  opacity: .85;
+}
+.iw-kart-body::after {
+  /* spray under */
+  content: '';
+  position: absolute;
+  bottom: -22%;
+  left: -10%;
+  right: -10%;
+  height: 26%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.4), transparent 70%);
+  filter: blur(3px);
+}
+
+/* Smooth scrolling for the inner artboard frames */
+.iw-frame {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,.18) transparent;
+}
+.iw-frame::-webkit-scrollbar { width: 6px; }
+.iw-frame::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 3px; }
+
+/* Hairline rule */
+.iw-rule { height: 1px; background: var(--hairline); border: 0; }
+.iw-rule.light { background: var(--hairline-light); }
+
+/* Number reveal */
+@keyframes iw-fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.iw-fade-in { animation: iw-fade-up .9s cubic-bezier(.2,.7,.3,1) both; }

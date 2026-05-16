@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The best new water toy of 2025? Meet the IWAVE Wavekart. | iwave Journal</title>
+<meta name="description" content="Why the IWAVE Wavekart is the year's best new water toy — agility, drift, and zero emissions.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="styles/shared.css">
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}
+  .iw-article h2{font-family:'Manrope',sans-serif;font-weight:200;letter-spacing:-0.02em;font-size:30px;line-height:1.2;margin:56px 0 16px;color:var(--ink)}
+  .iw-article p{margin:0 0 20px;font-size:17px;line-height:1.75;color:var(--ink-2)}
+  .iw-article ul{padding-left:0;list-style:none;margin:8px 0 24px}
+  .iw-article ul li{padding:18px 0;border-top:1px solid var(--hairline);font-size:15px;line-height:1.6;color:var(--ink-2);display:flex;gap:18px;align-items:flex-start}
+  .iw-article ul li:last-child{border-bottom:1px solid var(--hairline)}
+  .iw-article ul li .iw-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--warm-grey);min-width:32px;padding-top:3px}
+  .iw-article ul li .iw-body{flex:1}
+  .iw-article ul li strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}
+  .iw-article blockquote{font-family:'Manrope',sans-serif;font-weight:200;letter-spacing:-0.01em;font-size:26px;line-height:1.4;margin:48px 0;color:var(--ink);padding-left:28px;border-left:1px solid var(--ink)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="shared/Layout.jsx"></script>
+<script type="text/babel" src="shared/News.jsx"></script>
+<script type="text/babel">
+  function Body() {
+    const reasons = [
+      { n: '01', t: 'Hop in & go',                  d: 'No license or prior experience required. Just step in, press the foot throttle, and start gliding across the water.' },
+      { n: '02', t: 'Electric, eco-friendly ride',  d: 'A state-of-the-art electric system delivers fast, smooth, and quiet rides — no engine noise, no fuel smell, no environmental guilt.' },
+      { n: '03', t: 'Up to 50 km/h (31 mph)',       d: 'Speeds rivaling much larger watercraft, in a compact, intuitive design. Feel the rush of open-water racing.' },
+      { n: '04', t: 'Precision steering & drifting', d: 'Sharp turns, casual cruising, or full drifts through waves — the Wavekart responds instantly to your movements.' },
+      { n: '05', t: 'Built to last',                d: 'Marine-grade construction, carbon-reinforced materials, and premium lithium batteries deliver durability — even in challenging saltwater conditions.' },
+      { n: '06', t: 'For all ages & occasions',     d: 'Perfect for luxury resorts, yacht toys, family fun, or private adventure seekers. As fun for adults as for younger riders under supervision.' },
+    ];
+    return (
+      <React.Fragment>
+        <p>Looking for the next big thing in watersports? Forget bulky boats and noisy jet skis — the IWAVE Wavekart is here to redefine fun on the water.</p>
+        <p>This electric-powered water go-kart delivers a whole new experience: the agility of a racing kart, the thrill of high-speed water drifting, and the freedom to explore — all with zero emissions.</p>
+
+        <h2>Why the IWAVE Wavekart is this year's best new water toy</h2>
+        <ul>
+          {reasons.map(r => (
+            <li key={r.n}>
+              <div className="iw-num">{r.n}</div>
+              <div className="iw-body">
+                <strong>{r.t}</strong>
+                {r.d}
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2>The verdict</h2>
+        <p>If you're looking to stand out at the marina, add excitement to your yacht, or offer guests a premium new experience at your resort, the IWAVE Wavekart is hands down the best new water toy of 2025.</p>
+        <blockquote>Ready to make waves this summer?</blockquote>
+        <p>Reach out at <strong>info@iwavekart.com</strong> to schedule a test ride, or explore the <a href="wavekart-s.html" style={{ color: 'var(--ink)' }}>Wavekart S</a> and <a href="wavekart-x.html" style={{ color: 'var(--ink)' }}>Wavekart X</a>.</p>
+      </React.Fragment>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <Article slug="best-new-water-toy-2025"><Body/></Article>
+  );
+</script>
+</body>
+</html>

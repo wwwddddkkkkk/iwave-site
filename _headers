@@ -6,3 +6,6 @@
 
 /styles/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/shared/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
