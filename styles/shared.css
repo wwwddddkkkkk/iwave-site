@@ -236,10 +236,9 @@ body { overflow-x: hidden; max-width: 100%; }
   .iw-compare-table [style*="font-size:13px"] { font-size: 11px !important; }
 
   /* ── Collapsed grid border fixes ──────────────────────── */
-  /* 4-col → 2-col: remove stray left borders on new left-column items,
-     add hairline between rows */
-  [style*="grid-template-columns:repeat(4,1fr)"] > div { border-left: none !important; }
-  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(even) { border-left: 1px solid var(--hairline) !important; }
+  /* 4-col → 2-col: remove stray left borders, normalize inline padding */
+  [style*="grid-template-columns:repeat(4,1fr)"] > div { border-left: none !important; padding-left: 0 !important; padding-right: 0 !important; }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(even) { border-left: 1px solid var(--hairline) !important; padding-left: 16px !important; }
   [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(n+3) { border-top: 1px solid var(--hairline) !important; }
 
   /* 5-col → 2-col: same pattern, hairline-light for dark-bg sections */
