@@ -41,11 +41,8 @@
 <!-- PRODUCT SHOT -->
 <section style="padding:20px 60px 60px;">
   <div id="s-viewer" style="position:relative;max-width:1200px;margin:0 auto;aspect-ratio:16/9;background:#FAFAF8;border-radius:24px;overflow:hidden;">
-    <div class="iw-kart" id="s-kart-css" style="--kart-color:#54AFC5;position:absolute;inset:0;">
-      <div class="iw-kart-body" style="width:60%;height:38%;"></div>
-    </div>
-    <img class="kart-photo" id="s-kart-img" src="" alt="Wavekart S"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;z-index:2;">
+    <img class="kart-photo" id="s-kart-img" src="assets/wavekart/s-blue.png" alt="Wavekart S"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
     <div class="font-mono tracked-sm kart-label" style="position:absolute;bottom:24px;left:24px;font-size:10px;color:var(--warm-grey);z-index:1;">MODEL · S · BLUE</div>
   </div>
   <!-- Color picker -->
@@ -311,35 +308,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var swatchContainer = document.getElementById('s-swatches');
   var finishLabel = document.getElementById('s-finish-label');
   var img = document.getElementById('s-kart-img');
-  var kartEl = document.getElementById('s-kart-css');
-  var kartLabel = document.querySelector('#s-viewer .kart-label');
 
-  function showPhoto() {
-    img.style.display = 'block';
-    kartEl.style.display = 'none';
-  }
-  function showKart() {
-    img.style.display = 'none';
-    kartEl.style.display = '';
-  }
+  var kartLabel = document.querySelector('#s-viewer .kart-label');
 
   function setColor(c) {
     current = c;
     if (finishLabel) finishLabel.textContent = c.name;
-    if (kartEl) kartEl.style.setProperty('--kart-color', c.hex);
+    if (img) img.src = 'assets/wavekart/s-' + c.slug + '.png';
     if (kartLabel) kartLabel.textContent = 'MODEL · S · ' + c.name;
     swatchContainer.querySelectorAll('button').forEach(function(btn) {
       btn.style.border = btn.dataset.slug === c.slug ? '2px solid var(--ink)' : '1px solid var(--hairline)';
       btn.style.outline = btn.dataset.slug === c.slug ? '1px solid var(--ink)' : '';
       btn.style.outlineOffset = '3px';
     });
-    if (img) {
-      showKart();
-      img.onload = showPhoto;
-      img.onerror = showKart;
-      img.src = 'assets/wavekart/s-' + c.slug + '.png';
-      if (img.complete && img.naturalWidth > 0) { showPhoto(); }
-    }
   }
 
   COLORS.forEach(function(c) {
