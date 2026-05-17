@@ -38,8 +38,8 @@ function injectMobileStyles() {
       .iw-hamburger{display:flex !important;}
       .iw-footer{grid-template-columns:1.8fr 1fr 1fr !important;gap:20px !important;padding:32px 20px 20px !important;}
       .iw-footer-contact-col{display:none !important;}
-      .iw-footer-logo{height:16px !important;}
-      .iw-footer-tagline{font-size:10px !important;max-width:none !important;margin-bottom:14px !important;}
+      .iw-footer-logo{height:22px !important;}
+      .iw-footer-tagline{font-size:10px !important;max-width:120px !important;margin-bottom:14px !important;}
       .iw-footer ul{font-size:11px !important;}
       .iw-footer-bottom{padding:12px 20px 28px !important;}
     }
