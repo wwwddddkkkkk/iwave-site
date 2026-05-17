@@ -168,6 +168,10 @@ body { overflow-x: hidden; max-width: 100%; }
   * { min-width: 0; }
   img, video, iframe { max-width: 100%; }
 
+  /* Feature cards: compact photo and padding on mobile */
+  [style*="grid-template-columns:repeat(3,1fr)"] article { padding: 20px !important; min-height: 0 !important; }
+  [style*="grid-template-columns:repeat(3,1fr)"] article [style*="aspect-ratio:4/3"] { aspect-ratio: 16/9 !important; margin-bottom: 16px !important; }
+
   /* FAQ / Q&A */
   .faq-q { padding: 16px 0 !important; }
   .faq-q span[style*="font-size:20px"] { font-size: 15px !important; }
