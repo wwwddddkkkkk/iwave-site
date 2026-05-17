@@ -36,9 +36,8 @@ function injectMobileStyles() {
       .iw-nav-ig{display:none !important;}
       .iw-nav-logo{height:24px !important;}
       .iw-hamburger{display:flex !important;}
-      .iw-footer{grid-template-columns:1fr 1fr 1fr !important;gap:16px !important;padding:32px 20px 20px !important;}
+      .iw-footer{grid-template-columns:1.8fr 1fr 1fr !important;gap:20px !important;padding:32px 20px 20px !important;}
       .iw-footer-contact-col{display:none !important;}
-      .iw-footer-contact-mobile{display:block !important;}
       .iw-footer-logo{height:16px !important;}
       .iw-footer-tagline{font-size:10px !important;max-width:none !important;margin-bottom:14px !important;}
       .iw-footer ul{font-size:11px !important;}
@@ -128,13 +127,6 @@ function renderFooter() {
         <a href="https://www.instagram.com/iwave_watersports" target="_blank" rel="noopener" aria-label="iwave on Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;">
           ${IG_SVG}
         </a>
-        <div class="iw-footer-contact-mobile" style="display:none;">
-          <div class="tracked-md" style="font-size:9px;color:var(--warm-grey);margin-top:20px;margin-bottom:12px;">CONTACT</div>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:11px;">
-            <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">info@iwavekart.com</a></li>
-            <li><a href="${MAIL_SUPPORT}" style="color:inherit;text-decoration:none;">support@iwavekart.com</a></li>
-          </ul>
-        </div>
       </div>
       <div>
         <div class="tracked-md" style="font-size:9px;color:var(--warm-grey);margin-bottom:16px;">WAVEKART</div>
@@ -151,8 +143,7 @@ function renderFooter() {
           <li><a href="about.html" style="color:inherit;text-decoration:none;">About</a></li>
           <li><a href="news.html" style="color:inherit;text-decoration:none;">Journal</a></li>
           <li><a href="faq.html" style="color:inherit;text-decoration:none;">FAQ</a></li>
-          <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">Press</a></li>
-          <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">Partnerships</a></li>
+          <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">Contact</a></li>
         </ul>
       </div>
       <div class="iw-footer-contact-col">
