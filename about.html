@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" type="image/jpeg" href="assets/favicon.png">
 <link rel="stylesheet" href="styles/shared.css">
 <style>
   html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
@@ -49,6 +49,12 @@
         Three years of design, engineering, and more than <strong style="font-weight:500;color:var(--ink);">200 user tests</strong> on lakes, rivers, and open waters later — the result is the Wavekart series.
       </p>
     </div>
+  </div>
+  <div style="margin-top:56px;">
+    <img src="assets/about/story.jpg" alt="iwave story"
+      onload="this.style.opacity=1;this.nextElementSibling.style.display='none'" onerror="this.style.opacity=0"
+      style="width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:12px;display:block;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+    <div class="iw-placeholder" style="width:100%;aspect-ratio:16/7;border-radius:12px;"><div class="iw-placeholder-label">STORY · PHOTO — upload as assets/about/story.jpg</div></div>
   </div>
 </section>
 
@@ -155,9 +161,17 @@
       A global team with deep roots<br>in engineering, industrial design,<br>and action sports.
     </h2>
     <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;">
-      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
-        Our core team members have backgrounds from top international companies and brands — united by a shared vision: making water adventure electric, exciting, and accessible.
-      </p>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+          Our core team members have backgrounds from top international companies and brands — united by a shared vision: making water adventure electric, exciting, and accessible.
+        </p>
+        <div style="position:relative;">
+          <img src="assets/about/team.jpg" alt="iwave team"
+            onload="this.style.opacity=1;this.nextElementSibling.style.display='none'" onerror="this.style.opacity=0"
+            style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+          <div class="iw-placeholder" style="width:100%;aspect-ratio:4/3;border-radius:12px;"><div class="iw-placeholder-label">TEAM · PHOTO — assets/about/team.jpg</div></div>
+        </div>
+      </div>
       <div>
         <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:24px;">OPERATIONS</div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);">

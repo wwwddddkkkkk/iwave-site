@@ -203,9 +203,23 @@ body { overflow-x: hidden; max-width: 100%; }
   .iw-spec-strip { flex-wrap: wrap !important; gap: 6px 16px !important; padding: 14px 20px !important; justify-content: center !important; }
   .iw-spec-strip span:nth-child(even) { display: none !important; }
 
+  /* 2-col equal → 1-col (repeat variant) */
+  [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
   /* Large stat numbers → smaller on mobile */
   [style*="font-size:72px"] { font-size: 42px !important; }
   [style*="font-size:80px"] { font-size: 42px !important; }
+
+  /* Section vertical padding — cap tall desktop sections */
+  section[style*="padding:120px"] { padding-top: 60px !important; padding-bottom: 60px !important; }
+  section[style*="padding:100px"] { padding-top: 52px !important; padding-bottom: 52px !important; }
+
+  /* Compare table: horizontal scroll keeps 3-col readable */
+  .iw-compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .iw-compare-table [style*="grid-template-columns:1.4fr 1fr 1fr"] {
+    grid-template-columns: 1.4fr 1fr 1fr !important;
+    min-width: 560px;
+  }
 
   /* Header inner */
   .iw-header-inner { padding: 10px 16px !important; }

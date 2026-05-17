@@ -5,6 +5,10 @@
 /shared/*.jsx
   Content-Type: text/javascript; charset=utf-8
 
+/assets/favicon.png
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
 /assets/*.mp4
   Content-Type: video/mp4
   Accept-Ranges: bytes
