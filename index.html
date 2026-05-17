@@ -234,8 +234,11 @@
         IWAVE was born inside a Yale engineering laboratory — a quiet question about whether watercraft could be both intimate and electric. Today, that thesis is in production.
       </p>
     </div>
-    <div class="iw-placeholder" style="aspect-ratio:4/5;border-radius:8px;">
-      <div class="iw-placeholder-label">FOUNDER · STUDIO</div>
+    <div style="position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;">
+      <img src="assets/founder.jpg" alt="iwave founder studio"
+        onload="this.style.opacity=1;this.nextElementSibling.style.display='none'" onerror="this.style.opacity=0"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+      <div class="iw-placeholder" style="position:absolute;inset:0;"><div class="iw-placeholder-label">FOUNDER · STUDIO</div></div>
     </div>
   </div>
 </section>
