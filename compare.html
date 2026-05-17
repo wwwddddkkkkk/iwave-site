@@ -2,21 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Compare — iwave Wavekart S & X</title>
-<meta name="description" content="Compare Wavekart S and Wavekart X. Two crafts, one ethos.">
+<title>Compare Wavekart S &amp; X | iwave Wavekart</title>
+<meta name="description" content="Compare the Wavekart S and Wavekart X — side-by-side specs, features, and pricing.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
-<style>html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}</style>
+<style>
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
+  *{box-sizing:border-box;}
+  .faq-item{border-top:1px solid var(--hairline);}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;padding:24px 0;background:transparent;border:0;cursor:pointer;font-family:inherit;color:var(--ink);text-align:left;}
+  .faq-a{font-size:15px;color:var(--ink-2);line-height:1.75;max-width:760px;}
+  .faq-a p{margin:0 0 12px;}
+</style>
 </head>
-<body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="shared/ComparePage.jsx"></script>
-<script type="text/babel">
-  ReactDOM.createRoot(document.getElementById('root')).render(<ComparePage/>);
-</script>
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 'compare';</script>
+
+<!-- HERO -->
+<section style="padding:80px 60px 40px;text-align:center;">
+  <div class="tracked-xl" style="font-size:10px;color:var(--warm-grey);margin-bottom:18px;">COMPARE</div>
+  <h1 class="font-display" style="font-size:clamp(56px,8vw,120px);font-weight:200;letter-spacing:-0.04em;line-height:1;margin:0 0 24px;">S or X.</h1>
+  <p style="font-size:18px;color:var(--ink-2);max-width:580px;margin:0 auto;line-height:1.5;">
+    Two crafts, one ethos. Choose by who's riding, where, and how often.
+  </p>
+</section>
+
+<!-- TWO CARDS -->
+<section style="padding:60px;max-width:1300px;margin:0 auto;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <!-- S Card -->
+    <div style="background:#FAFAF8;border-radius:24px;padding:40px;display:flex;flex-direction:column;">
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">COMPACT · 60 KG · FIBERGLASS</div>
+      <h2 class="font-display" style="font-size:56px;font-weight:200;letter-spacing:-0.03em;margin:0 0 4px;line-height:1;">Wavekart S</h2>
+      <div class="font-serif" style="font-size:20px;font-style:italic;color:var(--warm-grey);margin-bottom:20px;">Sport Edition</div>
+      <p style="color:var(--ink-2);margin-bottom:28px;font-size:16px;line-height:1.55;">Portability and fun for personal adventures.</p>
+      <div style="aspect-ratio:4/3;background:#fff;border-radius:12px;margin-bottom:28px;position:relative;overflow:hidden;">
+        <div class="iw-kart" style="--kart-color:#54AFC5;position:absolute;inset:0;">
+          <div class="iw-kart-body" style="width:60%;height:38%;"></div>
+        </div>
+        <img src="assets/wavekart/s-blue.png" alt="Wavekart S"
+          onload="this.style.opacity=1" onerror="this.style.opacity=0"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:4px;">STARTING FROM</div>
+      <div class="font-display" style="font-size:28px;font-weight:200;margin-bottom:24px;">$8,999</div>
+      <div style="display:flex;gap:8px;margin-top:auto;">
+        <a href="wavekart-s.html" style="flex:1;text-align:center;padding:12px 16px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-size:13px;font-weight:500;">View Wavekart S</a>
+        <a href="mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20S" style="flex:1;text-align:center;padding:12px 16px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:13px;">Reserve</a>
+      </div>
+    </div>
+    <!-- X Card -->
+    <div style="background:#FAFAF8;border-radius:24px;padding:40px;display:flex;flex-direction:column;">
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">SPACIOUS · 70 KG · HDPE</div>
+      <h2 class="font-display" style="font-size:56px;font-weight:200;letter-spacing:-0.03em;margin:0 0 4px;line-height:1;">Wavekart X</h2>
+      <div class="font-serif" style="font-size:20px;font-style:italic;color:var(--warm-grey);margin-bottom:20px;">Family Edition</div>
+      <p style="color:var(--ink-2);margin-bottom:28px;font-size:16px;line-height:1.55;">Designed for resorts, rentals, and shared shorelines.</p>
+      <div style="aspect-ratio:4/3;background:#fff;border-radius:12px;margin-bottom:28px;position:relative;overflow:hidden;">
+        <div class="iw-kart" style="--kart-color:#1AB6EF;position:absolute;inset:0;">
+          <div class="iw-kart-body" style="width:74%;height:44%;"></div>
+        </div>
+        <img src="assets/wavekart/x-blue.png" alt="Wavekart X"
+          onload="this.style.opacity=1" onerror="this.style.opacity=0"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:4px;">PRICING</div>
+      <div class="font-display" style="font-size:28px;font-weight:200;margin-bottom:24px;">On request</div>
+      <div style="display:flex;gap:8px;margin-top:auto;">
+        <a href="wavekart-x.html" style="flex:1;text-align:center;padding:12px 16px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-size:13px;font-weight:500;">View Wavekart X</a>
+        <a href="mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20X" style="flex:1;text-align:center;padding:12px 16px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:13px;">Reserve</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC TABLE -->
+<section style="padding:80px 60px 120px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">SIDE BY SIDE</div>
+    <h2 class="font-display" style="font-size:clamp(32px,4vw,48px);font-weight:200;letter-spacing:-0.03em;margin:0 0 48px;">Specifications.</h2>
+    <div style="border-top:1px solid var(--ink);">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:20px 0;border-bottom:1px solid var(--ink);" class="tracked-md">
+        <div style="font-size:10px;color:var(--warm-grey);"></div>
+        <div style="font-size:11px;">WAVEKART S</div>
+        <div style="font-size:11px;">WAVEKART X</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Edition</div><div>Sport</div><div>Family</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Target users</div><div>Personal · portability &amp; fun</div><div>Commercial · resorts · families</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Top speed</div><div>35–50 km/h</div><div>35–50 km/h</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Run time</div><div>60–90 min</div><div>60–90 min</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Battery capacity</div><div>5.2 kWh / 72V</div><div>6.4 kWh / 72V</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Battery cell</div><div>Lithium</div><div>Lithium</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Charging voltage</div><div>110V / 220V</div><div>110V / 220V</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Max load</div><div>300 lbs</div><div>300 lbs</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Material</div><div>Fiberglass</div><div>HDPE (high-density polyethylene)</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Product weight</div><div>60 kg + 26 kg battery</div><div>70 kg + 30 kg battery</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Product size</div><div>1950 × 850 × 650 mm</div><div>2100 × 1150 × 660 mm</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Package size</div><div>2060 × 900 × 800 mm</div><div>2250 × 1200 × 800 mm</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Std. accessories</div><div>Bumper, deck cover</div><div>Deck cover</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Certification</div><div>UN38.3 · MSDS · HIN (US)</div><div>UN38.3 · MSDS · HIN (US)</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Warranty</div><div>12 months</div><div>12 months</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Lead time</div><div>~60 days</div><div>~60 days</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">Best for</div><div>SUV transport · solo</div><div>Yacht · Resort · rental</div></div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:18px 0;border-bottom:1px solid var(--hairline);font-size:14px;"><div style="color:var(--warm-grey);">From</div><div>$8,999</div><div>On request</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:100px 60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:60px;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">CHOOSING</div>
+      <h2 class="font-display" style="font-size:clamp(36px,4vw,56px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 24px;">
+        Questions<br>about choosing.
+      </h2>
+      <p style="font-size:13px;color:var(--warm-grey);line-height:1.7;margin:0;">
+        More on the <a href="faq.html" style="color:var(--ink);">FAQ page</a> — or write us at <a href="mailto:info@iwavekart.com" style="color:var(--ink);">info@iwavekart.com</a>.
+      </p>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Which model is right for me?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Both deliver the same signature Wavekart experience — fast, fun, and intuitive. The difference is size, material, and use case.</p>
+          <p><strong style="color:var(--ink);font-weight:500;">Wavekart S</strong> — compact, lightweight fiberglass body. Sleek, premium, and SUV-friendly. Ideal for private owners and luxury resorts.</p>
+          <p><strong style="color:var(--ink);font-weight:500;">Wavekart X</strong> — larger and roomier, built with HDPE. Highly durable and impact-resistant. Perfect for rental operations, hotels, and family use.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Are the performance specs the same?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. Both models share the same core performance — 35–50 km/h top speed, 60–90 minutes of run time, and the same silent electric jet drive. The X carries a larger 6.4 kWh battery for higher-duty cycles.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Can I use them on the ocean as well as lakes?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Both are rated for fresh and salt water. The X's HDPE hull is particularly forgiving on shared shorelines and against the dings of busy marinas.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Do I need a license?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>In most regions, no special license is required. Each Wavekart ships with a Hull Identification Number (HIN) for U.S. registration. Please check local regulations.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What's the warranty and support like?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Both come with a 12-month standard warranty. We ship replacement parts free of charge during the warranty period, and continue supplying parts at fair prices afterward.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What about pricing for Wavekart X?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Wavekart X pricing is provided on request, since most orders involve fleet quantities, branding, or commercial customization.</p>
+          <p>For a quote, email <a href="mailto:info@iwavekart.com" style="color:var(--ink);">info@iwavekart.com</a>.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
+  <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:24px;">READY?</div>
+  <h2 class="font-display" style="font-size:clamp(40px,6vw,88px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 32px;">
+    Reserve, or<br>schedule a test.
+  </h2>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+    <a href="mailto:info@iwavekart.com?subject=Reserve%20a%20Wavekart" style="display:inline-block;padding:16px 32px;border-radius:999px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;">Reserve</a>
+    <a href="mailto:info@iwavekart.com?subject=Schedule%20a%20Wavekart%20test%20ride" style="display:inline-block;padding:16px 32px;border-radius:999px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);font-family:inherit;font-size:14px;text-decoration:none;">Schedule a test ride</a>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
 </body>
 </html>

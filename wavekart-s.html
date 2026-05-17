@@ -2,21 +2,344 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Wavekart S — iwave</title>
-<meta name="description" content="Wavekart S — Compact, electric, 60 kg. The first electric jet go-kart for the solo adventurer.">
+<title>Wavekart S — Sport Edition | iwave Wavekart</title>
+<meta name="description" content="Wavekart S — the compact, lightweight electric water go-kart. From $8,999.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
-<style>html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}</style>
+<style>
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
+  *{box-sizing:border-box;}
+  .faq-item{border-top:1px solid var(--hairline);}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;padding:24px 0;background:transparent;border:0;cursor:pointer;font-family:inherit;color:var(--ink);text-align:left;}
+  .faq-a{font-size:15px;color:var(--ink-2);line-height:1.75;max-width:760px;}
+  .faq-a p{margin:0 0 12px;}
+  .faq-a ul{margin:0 0 12px;padding-left:20px;}
+  .faq-a ol{margin:0 0 12px;padding-left:20px;}
+</style>
 </head>
-<body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="shared/ProductPage.jsx"></script>
-<script type="text/babel">
-  ReactDOM.createRoot(document.getElementById('root')).render(<ProductPage model="S"/>);
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 's';</script>
+
+<!-- HERO -->
+<section style="padding:80px 60px 40px;text-align:center;">
+  <div class="tracked-xl" style="font-size:10px;color:var(--warm-grey);margin-bottom:18px;">COMPACT · SPORT</div>
+  <h1 class="font-display" style="font-size:clamp(56px,8vw,120px);line-height:0.95;letter-spacing:-0.04em;font-weight:200;margin:0 0 12px;">Wavekart S</h1>
+  <div class="font-serif" style="font-size:22px;font-style:italic;color:var(--warm-grey);margin-bottom:24px;">Sport Edition</div>
+  <p style="font-size:18px;color:var(--ink-2);max-width:580px;margin:0 auto 36px;line-height:1.5;">
+    For riders looking for portability and fun. Fits easily in an SUV for personal adventures.
+  </p>
+  <div style="display:flex;justify-content:center;gap:12px;">
+    <a href="mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20S&body=I'm%20interested%20in%20reserving%20a%20Wavekart%20S.%0A%0AName:%0ALocation:%0APreferred%20finish:" style="display:inline-block;padding:14px 28px;border-radius:999px;background:var(--ink);color:#fff;font-family:inherit;font-size:13px;font-weight:500;text-decoration:none;">Reserve Wavekart S →</a>
+    <a href="compare.html" style="padding:14px 28px;border-radius:999px;font-size:13px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;">Compare →</a>
+  </div>
+</section>
+
+<!-- PRODUCT SHOT -->
+<section style="padding:20px 60px 60px;">
+  <div id="s-viewer" style="position:relative;max-width:1200px;margin:0 auto;aspect-ratio:16/9;background:#FAFAF8;border-radius:24px;overflow:hidden;">
+    <div class="iw-kart" id="s-kart-css" style="--kart-color:#54AFC5;position:absolute;inset:0;">
+      <div class="iw-kart-body" style="width:60%;height:38%;"></div>
+    </div>
+    <img class="kart-photo" id="s-kart-img" src="assets/wavekart/s-blue.png" alt="Wavekart S"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+    <div class="font-mono tracked-sm kart-label" style="position:absolute;bottom:24px;left:24px;font-size:10px;color:var(--warm-grey);">MODEL · S · BLUE</div>
+  </div>
+  <!-- Color picker -->
+  <div style="max-width:1200px;margin:40px auto 0;display:flex;flex-direction:column;align-items:center;gap:14px;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);">FINISH · <span id="s-finish-label">BLUE</span></div>
+    <div id="s-swatches" style="display:flex;gap:12px;"></div>
+  </div>
+</section>
+
+<!-- BIG STATEMENT -->
+<section style="padding:120px 60px;text-align:center;background:#FAFAF8;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
+  <h2 class="font-display" style="font-size:clamp(40px,5.5vw,80px);font-weight:200;letter-spacing:-0.03em;line-height:1.1;margin:0;max-width:900px;margin-inline:auto;">
+    Light. Quick. Yours.
+  </h2>
+</section>
+
+<!-- FEATURE BLOCKS -->
+<section style="padding:120px 60px;">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1300px;margin:0 auto;">
+    <article style="background:#FAFAF8;border-radius:20px;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div class="iw-placeholder" style="aspect-ratio:4/3;border-radius:12px;margin-bottom:28px;">
+        <div class="iw-placeholder-label">FEATURE 01</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:24px;font-weight:300;letter-spacing:-0.02em;margin:0 0 12px;">Sixty kilograms.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">Light enough to slide into the back of an SUV. Two adults can lift it from parking lot to lake.</p>
+      </div>
+    </article>
+    <article style="background:#FAFAF8;border-radius:20px;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div class="iw-placeholder" style="aspect-ratio:4/3;border-radius:12px;margin-bottom:28px;">
+        <div class="iw-placeholder-label">FEATURE 02</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:24px;font-weight:300;letter-spacing:-0.02em;margin:0 0 12px;">Silent electric drive.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">Zero emissions. Reef-friendly. A throttle that responds in milliseconds.</p>
+      </div>
+    </article>
+    <article style="background:#FAFAF8;border-radius:20px;padding:36px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div class="iw-placeholder" style="aspect-ratio:4/3;border-radius:12px;margin-bottom:28px;">
+        <div class="iw-placeholder-label">FEATURE 03</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:24px;font-weight:300;letter-spacing:-0.02em;margin:0 0 12px;">Ten-second battery swap.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">5.2 kWh / 72V Li-ion, certified to UN38.3 and MSDS. Charge in the garage, swap on the dock.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+  <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">BY THE NUMBERS</div>
+  <h2 class="font-display" style="font-size:clamp(36px,4vw,56px);font-weight:200;letter-spacing:-0.03em;margin:0 0 80px;">Every figure, considered.</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;">
+      <div class="font-display" style="font-size:72px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="50">50</span><span style="font-size:16px;color:var(--warm-grey);">km/h</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">TOP SPEED</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:72px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="90">90</span><span style="font-size:16px;color:var(--warm-grey);">min</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">RUN TIME</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:72px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="60">60</span><span style="font-size:16px;color:var(--warm-grey);">kg</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">HULL WEIGHT</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:72px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="10">10</span><span style="font-size:16px;color:var(--warm-grey);">sec</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">BATTERY SWAP</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC TABLE -->
+<section style="padding:120px 60px;background:#FAFAF8;border-top:1px solid var(--hairline);">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">SPECIFICATIONS</div>
+    <h2 class="font-display" style="font-size:clamp(32px,4vw,48px);font-weight:200;letter-spacing:-0.03em;margin:0 0 48px;">Wavekart S · Tech Specs</h2>
+    <dl style="margin:0;">
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Top speed</dt><dd style="margin:0;">35–50 km/h</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Run time</dt><dd style="margin:0;">60–90 min</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Battery capacity</dt><dd style="margin:0;">5.2 kWh / 72V</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Battery cell</dt><dd style="margin:0;">Lithium</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Charging voltage</dt><dd style="margin:0;">110V / 220V</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Max load</dt><dd style="margin:0;">300 lbs</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Hull weight</dt><dd style="margin:0;">60 kg + 26 kg battery</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Product size</dt><dd style="margin:0;">1950 × 850 × 650 mm</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Package size</dt><dd style="margin:0;">2060 × 900 × 800 mm</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Material</dt><dd style="margin:0;">Fiberglass</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Drive</dt><dd style="margin:0;">Electric jet</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Capacity</dt><dd style="margin:0;">1 rider</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Standard accessories</dt><dd style="margin:0;">Bumper, deck cover</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Certification</dt><dd style="margin:0;">UN38.3 · MSDS · HIN (US)</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Warranty</dt><dd style="margin:0;">12 months</dd></div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;padding:18px 0;border-top:1px solid var(--hairline);font-size:14px;"><dt style="color:var(--warm-grey);">Lead time</dt><dd style="margin:0;">~60 days</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:60px;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">YOU MIGHT WANT TO KNOW</div>
+      <h2 class="font-display" style="font-size:clamp(36px,4vw,56px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 24px;">
+        Wavekart S<br>questions.
+      </h2>
+      <p style="font-size:13px;color:var(--warm-grey);line-height:1.7;margin:0;">
+        More general questions on the <a href="faq.html" style="color:var(--ink);">FAQ page</a> — or reach out at <a href="mailto:info@iwavekart.com" style="color:var(--ink);">info@iwavekart.com</a>.
+      </p>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What is the bumper for?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Every Wavekart S comes with a complimentary bumper, designed to enhance your experience: it adds extra stability in choppy waters, and provides an additional layer of protection when docking or maneuvering near other boats.</p>
+          <p><em>For rentals:</em> we highly recommend installing the bumper — it ensures a safer, more stable ride for first-time riders.</p>
+          <p><em>For personal use:</em> install it for added comfort in rougher conditions, or remove it for a sleeker look in calm waters.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">How easy is it to handle &amp; transport?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <ul>
+            <li>With the battery removed, the hull is 60 kg — two adults can easily lift and carry it.</li>
+            <li>With a small trailer, even a single person can tow it effortlessly.</li>
+            <li>Two men and two women can comfortably carry it together from parking lot to lake front.</li>
+            <li>The boat fits inside most SUV trunks — no trailer needed unless you prefer one.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">How do I swap the battery in seconds?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Swapping batteries is quick and simple:</p>
+          <ol>
+            <li>Turn off the boat.</li>
+            <li>Open the battery box, lift out the battery, and insert a fully charged one.</li>
+            <li>Close the box securely — you're ready to go.</li>
+          </ol>
+          <p><em>Pro tip:</em> always double-check the battery seal to keep your boat protected.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">How do I enjoy longer rides?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>The battery lasts approximately 60–90 minutes under continuous riding. In real life, you're rarely holding the throttle non-stop — cruising, drifting, and pausing extend that significantly.</p>
+          <p>In our test rides, groups of 4–5 people take 10–15 minute turns each and easily enjoy 2–4 rounds on a single battery.</p>
+          <p>For intense riders or families who love to share, we recommend a second battery. Swapping takes just minutes — and the fun continues all day.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What if I don't like fast speed?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Your boat adapts to your mood. Glide slowly to enjoy the view, or push the throttle for a go-kart-on-water experience. Ride at your own pace — the experience is yours to create.</p>
+          <p style="font-size:13px;color:var(--warm-grey);"><em>Safety:</em> in most regions, minors must be accompanied by an adult. Please check local regulations and ride responsibly.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">How do I clean the boat?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Rinse with fresh water after every ride. Avoid high-pressure washers on electronic components. For the body, use a soft cloth and mild detergent — treat it like your favorite car or sports gear.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Charging tips</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <ul>
+            <li>Always use the original charger provided. Connect the charger before plugging it into the outlet.</li>
+            <li>Charge in a cool, dry place away from direct sunlight.</li>
+            <li>Do not leave the battery on charge unattended for extended periods.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Safety &amp; maintenance</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <ul>
+            <li>Perform a pre-ride check for loose components or visible damage.</li>
+            <li>Store the boat in a shaded area or indoors when not in use.</li>
+            <li>If any issues occur (e.g. power failure, controller pairing), refer to the user manual or contact our support team.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What if my boat needs service?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;position:relative;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Every boat comes with a 12-month warranty. If something breaks, we ship replacement parts free of charge to your address or directly to your service provider.</p>
+          <p>After the warranty expires, we continue to supply replacement parts at fair prices so you can keep enjoying your boat for years.</p>
+          <p>Choose how to handle repairs: follow our step-by-step video guides yourself, or bring it to an authorized service provider — either way, our team is here to help.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
+  <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:24px;">RESERVE</div>
+  <h2 class="font-display" style="font-size:clamp(40px,6vw,88px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 24px;">
+    Wavekart S.<br>From $8,999.
+  </h2>
+  <p style="opacity:.75;max-width:480px;margin:0 auto 40px;font-size:15px;line-height:1.6;">
+    We build each Wavekart to order. Reach out and our team will be in touch within 48 hours.
+  </p>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+    <a href="mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20S&body=I'm%20interested%20in%20reserving%20a%20Wavekart%20S.%0A%0AName:%0ALocation:%0APreferred%20finish:" style="display:inline-block;padding:16px 36px;border-radius:999px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;">Reserve Wavekart S →</a>
+    <a href="mailto:info@iwavekart.com?subject=Schedule%20a%20Wavekart%20S%20test%20ride" style="display:inline-block;padding:16px 36px;border-radius:999px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);font-family:inherit;font-size:14px;text-decoration:none;">Schedule a test ride →</a>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var COLORS = [
+    { name: 'BLUE',   hex: '#54AFC5', slug: 'blue'   },
+    { name: 'YELLOW', hex: '#F8F31E', slug: 'yellow' },
+    { name: 'RED',    hex: '#DC2626', slug: 'red'    },
+    { name: 'GREEN',  hex: '#13C633', slug: 'green'  },
+    { name: 'PINK',   hex: '#EC4899', slug: 'pink'   },
+    { name: 'GREY',   hex: '#C9C8CE', slug: 'grey'   },
+  ];
+  var current = COLORS[0];
+  var swatchContainer = document.getElementById('s-swatches');
+  var finishLabel = document.getElementById('s-finish-label');
+  var img = document.getElementById('s-kart-img');
+  var kartEl = document.getElementById('s-kart-css');
+  var kartLabel = document.querySelector('#s-viewer .kart-label');
+
+  function setColor(c) {
+    current = c;
+    if (finishLabel) finishLabel.textContent = c.name;
+    if (img) {
+      img.style.opacity = '0';
+      img.src = 'assets/wavekart/s-' + c.slug + '.png';
+      img.onload = function() { img.style.opacity = '1'; };
+      img.onerror = function() { img.style.opacity = '0'; };
+    }
+    if (kartEl) kartEl.style.setProperty('--kart-color', c.hex);
+    if (kartLabel) kartLabel.textContent = 'MODEL · S · ' + c.name;
+    swatchContainer.querySelectorAll('button').forEach(function(btn) {
+      btn.style.border = btn.dataset.slug === c.slug ? '2px solid var(--ink)' : '1px solid var(--hairline)';
+      btn.style.outline = btn.dataset.slug === c.slug ? '1px solid var(--ink)' : '';
+      btn.style.outlineOffset = '3px';
+    });
+  }
+
+  COLORS.forEach(function(c) {
+    var btn = document.createElement('button');
+    btn.dataset.slug = c.slug;
+    btn.title = c.name;
+    btn.style.cssText = 'width:34px;height:34px;border-radius:50%;padding:0;cursor:pointer;transition:all .2s;';
+    btn.style.background = c.hex;
+    btn.addEventListener('click', function() { setColor(c); });
+    swatchContainer.appendChild(btn);
+  });
+
+  setColor(COLORS[0]);
+});
 </script>
 </body>
 </html>

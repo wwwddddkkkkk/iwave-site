@@ -3,20 +3,218 @@
 <head>
 <meta charset="utf-8">
 <title>FAQ — iwave Wavekart</title>
-<meta name="description" content="Wavekart FAQ — product, battery, purchase, warranty, regulations.">
+<meta name="description" content="Frequently asked questions about the iwave Wavekart electric water go-kart.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
-<style>html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}</style>
+<style>
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
+  *{box-sizing:border-box;}
+  .faq-item{border-top:1px solid var(--hairline);}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;width:100%;padding:24px 0;background:transparent;border:0;cursor:pointer;font-family:inherit;color:var(--ink);text-align:left;}
+  .faq-a{font-size:15px;color:var(--ink-2);line-height:1.75;max-width:760px;}
+  .faq-a p{margin:0 0 12px;}
+  .faq-a ul{margin:0 0 12px;padding-left:20px;}
+  .faq-a strong{color:var(--ink);font-weight:500;}
+</style>
 </head>
-<body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="shared/FAQPage.jsx"></script>
-<script type="text/babel">
-  ReactDOM.createRoot(document.getElementById('root')).render(<FAQPage/>);
-</script>
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 'faq';</script>
+
+<!-- HERO -->
+<section style="padding:120px 60px 80px;text-align:center;max-width:1100px;margin:0 auto;">
+  <div class="tracked-xl" style="font-size:10px;color:var(--warm-grey);margin-bottom:18px;">FAQ</div>
+  <h1 class="font-display" style="font-size:clamp(56px,8vw,120px);font-weight:200;letter-spacing:-0.04em;line-height:0.98;margin:0 0 32px;">Questions, answered.</h1>
+  <p style="font-size:18px;color:var(--ink-2);max-width:580px;margin:0 auto;line-height:1.5;">
+    The first electric water go-kart, born at Yale. Here's everything you need to know before reserving yours.
+  </p>
+</section>
+
+<!-- SECTION I: Product -->
+<section style="padding:60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:60px;">
+    <div>
+      <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">I</div>
+      <h2 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0;line-height:1.15;">Product</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Who are WaveKarts suitable for?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>WaveKarts are beginner-friendly and safe for both adults and teens. They're ideal for yachts, lakes, resorts, rental operations, and private docks.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What's the top speed and battery life?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Top speed reaches up to 32 mph (52 km/h), with a battery runtime of 60–90 minutes depending on riding style and conditions.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Can it drift on water like a go-kart?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Absolutely. Our unique hull design enables controlled water drifting — a true go-kart-style experience on open water.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Do I need training to operate it?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No training needed. The vehicle is extremely intuitive — most riders are comfortable within five minutes.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION II: Battery & Safety -->
+<section style="padding:60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:60px;">
+    <div>
+      <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">II</div>
+      <h2 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0;line-height:1.15;">Battery &amp; safety</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What kind of battery does IWAVE use? Is it safe?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>We use high-quality, certified lithium battery packs with built-in protections for overheating, overcharging, and short-circuiting. Batteries comply with global standards including UN38.3 and MSDS.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Can I remove or replace the battery?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. The battery features a quick-swap design — changeable in roughly 10 seconds.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION III: Purchase & Support -->
+<section style="padding:60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:60px;">
+    <div>
+      <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">III</div>
+      <h2 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0;line-height:1.15;">Purchase &amp; support</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What's the price and where can I buy it?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>The starting retail price is <strong>$8,999 USD</strong>. You can order directly through our website or through an authorized IWAVE dealer.</p>
+          <p>For customization or business inquiries, email <a href="mailto:info@iwavekart.com" style="color:var(--ink);">info@iwavekart.com</a>.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Do you ship internationally?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes — we ship worldwide. Delivery costs vary based on destination and order quantity. Please contact us for an estimate.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Is there a warranty? What if something breaks?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>All IWAVE products come with a 12-month standard warranty. Outside dealer-supported regions, we provide replacement parts and remote technical support. Extended warranties and service partnerships are available in select locations.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">I run a hotel or rental business. Do you offer B2B packages?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes — we offer bulk pricing, customized branding, and exclusive partnerships for hotels, resorts, rental fleets, and entertainment venues. Reach out to explore collaboration.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">What's the lead time to receive a boat?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Production takes approximately 15 business days. Shipping time depends on your method and destination. In total, plan for a lead time of around 60 days.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION IV: Regulations & Use -->
+<section style="padding:60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:60px;">
+    <div>
+      <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:12px;">IV</div>
+      <h2 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0;line-height:1.15;">Regulations &amp; use</h2>
+    </div>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Do I need a license to operate it?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>In most regions, no special license is required. Please check with local authorities for specific requirements in your area.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          <span class="font-display" style="font-size:20px;font-weight:300;letter-spacing:-0.01em;padding-right:24px;">Are WaveKarts certified for legal use?</span>
+          <span class="faq-icon" style="width:28px;height:28px;flex:0 0 28px;font-size:20px;color:var(--ink);">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes. WaveKarts meet key international safety and transport standards including MSDS, UN38.3, and personal watercraft flotation requirements. For the U.S. market, each WaveKart is issued a Hull Identification Number (HIN), making it eligible for registration in accordance with local regulations.</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--hairline);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STILL HAVE QUESTIONS -->
+<section style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
+  <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:24px;">STILL HAVE QUESTIONS</div>
+  <h2 class="font-display" style="font-size:clamp(40px,5.5vw,80px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 32px;">We're happy to help.</h2>
+  <p style="opacity:.75;max-width:480px;margin:0 auto 48px;font-size:15px;line-height:1.6;">
+    Reach out and our team will respond within 48 hours.
+  </p>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+    <a href="mailto:info@iwavekart.com?subject=Wavekart%20Inquiry" style="display:inline-block;padding:16px 32px;border-radius:999px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;">info@iwavekart.com</a>
+    <a href="mailto:support@iwavekart.com?subject=Wavekart%20Support" style="display:inline-block;padding:16px 32px;border-radius:999px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);font-family:inherit;font-size:14px;text-decoration:none;">support@iwavekart.com</a>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
 </body>
 </html>

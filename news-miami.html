@@ -5,64 +5,119 @@
 <title>IWAVE at Miami International Boat Show | iwave Journal</title>
 <meta name="description" content="IWAVE made waves at the Miami International Boat Show with the world's first electric water go-kart.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
 <style>
-  html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}
-  .iw-article h2{font-family:'Manrope',sans-serif;font-weight:200;letter-spacing:-0.02em;font-size:30px;line-height:1.2;margin:56px 0 16px;color:var(--ink)}
-  .iw-article p{margin:0 0 20px;font-size:17px;line-height:1.75;color:var(--ink-2)}
-  .iw-article ul{padding-left:0;list-style:none;margin:8px 0 24px}
-  .iw-article ul li{padding:18px 0;border-top:1px solid var(--hairline);font-size:15px;line-height:1.6;color:var(--ink-2);display:flex;gap:18px;align-items:flex-start}
-  .iw-article ul li:last-child{border-bottom:1px solid var(--hairline)}
-  .iw-article ul li .iw-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--warm-grey);min-width:32px;padding-top:3px}
-  .iw-article ul li .iw-body{flex:1}
-  .iw-article ul li strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px}
+  html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C;}
+  *{box-sizing:border-box;}
+  .iw-article h2{font-family:'Manrope',sans-serif;font-weight:200;letter-spacing:-0.02em;font-size:30px;line-height:1.2;margin:56px 0 16px;color:var(--ink);}
+  .iw-article p{margin:0 0 20px;font-size:17px;line-height:1.75;color:var(--ink-2);}
+  .iw-article ul{padding-left:0;list-style:none;margin:8px 0 24px;}
+  .iw-article ul li{padding:18px 0;border-top:1px solid var(--hairline);font-size:15px;line-height:1.6;color:var(--ink-2);display:flex;gap:18px;align-items:flex-start;}
+  .iw-article ul li:last-child{border-bottom:1px solid var(--hairline);}
+  .iw-article ul li .iw-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--warm-grey);min-width:32px;padding-top:3px;}
+  .iw-article ul li .iw-body{flex:1;}
+  .iw-article ul li strong{color:var(--ink);font-weight:500;display:block;margin-bottom:2px;}
 </style>
 </head>
-<body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="shared/News.jsx"></script>
-<script type="text/babel">
-  function Body() {
-    const highlights = [
-      { n: '01', t: 'Intuitive "hop in & go" design', d: 'No license required, just press the foot throttle and experience pure fun.' },
-      { n: '02', t: 'Zero emissions',                 d: 'Advanced electric drive system. No engine noise. No fumes. An eco-friendly ride.' },
-      { n: '03', t: 'Drift & race on water',          d: 'Speeds up to 50 km/h (31 mph), precision steering, and agile handling — the thrill of racing, on the sea.' },
-      { n: '04', t: 'Modular & customizable',         d: 'Built for private and commercial markets. Options for branding and easy fleet management.' },
-    ];
-    return (
-      <React.Fragment>
-        <p>IWAVE made a splash at this year's Miami International Boat Show — one of the world's premier showcases for innovation in marine and luxury watercraft.</p>
-        <p>For our first public appearance in the U.S. market, we brought the IWAVE Wavekart S — the world's first electric water go-kart — to Miami's iconic waters. The response? Overwhelming excitement, smiles, and a steady stream of inquiries from luxury resort operators, yacht owners, and watersports enthusiasts.</p>
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 'journal';</script>
 
-        <h2>What makes the IWAVE Wavekart stand out</h2>
-        <ul>
-          {highlights.map(h => (
-            <li key={h.n}>
-              <div className="iw-num">{h.n}</div>
-              <div className="iw-body">
-                <strong>{h.t}</strong>
-                {h.d}
-              </div>
-            </li>
-          ))}
-        </ul>
+<!-- FULL-BLEED COVER -->
+<section style="width:100%;position:relative;">
+  <div class="iw-placeholder" style="width:100%;aspect-ratio:21/9;min-height:480px;">
+    <div class="iw-placeholder-label">EVENT · COVER IMAGE</div>
+  </div>
+</section>
 
-        <p>Throughout the five-day event we met with a wide range of partners — from top U.S. and European dealers to luxury hotel groups and adventure fleet operators. Test rides drew a diverse audience: families seeking new ways to enjoy the water, adventure lovers looking for the next big thrill, and marina managers exploring premium new offerings for their clients.</p>
+<!-- ARTICLE HEADER -->
+<section style="padding:60px 60px 40px;max-width:900px;margin:0 auto;">
+  <div style="margin-bottom:18px;">
+    <a href="news.html" class="tracked-md" style="font-size:10px;color:var(--warm-grey);text-decoration:none;">← JOURNAL</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;" class="tracked-md">
+    <span style="font-size:10px;color:var(--warm-grey);">EVENT</span>
+    <span style="font-size:10px;color:var(--warm-grey);">·</span>
+    <span style="font-size:10px;color:var(--warm-grey);">June 13, 2025</span>
+  </div>
+  <h1 class="font-display" style="font-size:clamp(40px,5.5vw,80px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 32px;">
+    IWAVE at Miami International Boat Show — making waves with the world's first water go-kart.
+  </h1>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <span class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-right:8px;">SHARE</span>
+    <a href="https://twitter.com/intent/tweet?text=IWAVE%20at%20Miami%20International%20Boat%20Show%20%E2%80%94%20making%20waves%20with%20the%20world%27s%20first%20water%20go-kart.%20%E2%80%94%20iwave%20Wavekart&url=https%3A%2F%2Fiwavekart.com%2Fnews-miami.html" target="_blank" rel="noopener" class="tracked-md" style="font-size:10px;padding:8px 16px;border:1px solid var(--hairline);border-radius:999px;color:var(--ink);text-decoration:none;">Twitter</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fiwavekart.com%2Fnews-miami.html" target="_blank" rel="noopener" class="tracked-md" style="font-size:10px;padding:8px 16px;border:1px solid var(--hairline);border-radius:999px;color:var(--ink);text-decoration:none;">LinkedIn</a>
+    <a href="mailto:?subject=IWAVE%20at%20Miami%20International%20Boat%20Show&body=Thought%20you'd%20like%20this%3A%20https%3A%2F%2Fiwavekart.com%2Fnews-miami.html" class="tracked-md" style="font-size:10px;padding:8px 16px;border:1px solid var(--hairline);border-radius:999px;color:var(--ink);text-decoration:none;">Email</a>
+  </div>
+</section>
 
-        <h2>What's next</h2>
-        <p>Following the show, IWAVE is expanding its dealer network in Florida and the U.S. East Coast, preparing for resort and private fleet deliveries this summer, and working on next-generation product development.</p>
-        <p>Thank you to everyone who visited us — your enthusiasm and ideas inspire us to keep pushing the boundaries of what's possible on water.</p>
-        <p>Stay tuned for more updates as IWAVE rides the next wave of innovation. To talk fleet or test rides, reach out at <strong>info@iwavekart.com</strong>.</p>
-      </React.Fragment>
-    );
-  }
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    <Article slug="miami-boat-show"><Body/></Article>
-  );
-</script>
+<!-- ARTICLE BODY -->
+<section style="padding:40px 60px 120px;">
+  <div class="iw-article" style="max-width:720px;margin:0 auto;font-size:17px;line-height:1.75;color:var(--ink-2);">
+    <p>IWAVE made a splash at this year's Miami International Boat Show — one of the world's premier showcases for innovation in marine and luxury watercraft.</p>
+    <p>For our first public appearance in the U.S. market, we brought the IWAVE Wavekart S — the world's first electric water go-kart — to Miami's iconic waters. The response? Overwhelming excitement, smiles, and a steady stream of inquiries from luxury resort operators, yacht owners, and watersports enthusiasts.</p>
+
+    <h2>What makes the IWAVE Wavekart stand out</h2>
+    <ul>
+      <li>
+        <div class="iw-num">01</div>
+        <div class="iw-body"><strong>Intuitive "hop in &amp; go" design</strong>No license required, just press the foot throttle and experience pure fun.</div>
+      </li>
+      <li>
+        <div class="iw-num">02</div>
+        <div class="iw-body"><strong>Zero emissions</strong>Advanced electric drive system. No engine noise. No fumes. An eco-friendly ride.</div>
+      </li>
+      <li>
+        <div class="iw-num">03</div>
+        <div class="iw-body"><strong>Drift &amp; race on water</strong>Speeds up to 50 km/h (31 mph), precision steering, and agile handling — the thrill of racing, on the sea.</div>
+      </li>
+      <li>
+        <div class="iw-num">04</div>
+        <div class="iw-body"><strong>Modular &amp; customizable</strong>Built for private and commercial markets. Options for branding and easy fleet management.</div>
+      </li>
+    </ul>
+
+    <p>Throughout the five-day event we met with a wide range of partners — from top U.S. and European dealers to luxury hotel groups and adventure fleet operators. Test rides drew a diverse audience: families seeking new ways to enjoy the water, adventure lovers looking for the next big thrill, and marina managers exploring premium new offerings for their clients.</p>
+
+    <h2>What's next</h2>
+    <p>Following the show, IWAVE is expanding its dealer network in Florida and the U.S. East Coast, preparing for resort and private fleet deliveries this summer, and working on next-generation product development.</p>
+    <p>Thank you to everyone who visited us — your enthusiasm and ideas inspire us to keep pushing the boundaries of what's possible on water.</p>
+    <p>Stay tuned for more updates as IWAVE rides the next wave of innovation. To talk fleet or test rides, reach out at <strong>info@iwavekart.com</strong>.</p>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section style="padding:80px 60px;background:#FAFAF8;border-top:1px solid var(--hairline);">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">KEEP READING</div>
+    <h2 class="font-display" style="font-size:36px;font-weight:200;letter-spacing:-0.02em;margin:0 0 48px;">More from the Journal</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:40px;">
+      <a href="news-launch.html" style="display:block;color:inherit;text-decoration:none;">
+        <article style="display:flex;flex-direction:column;gap:20px;">
+          <div class="iw-placeholder" style="aspect-ratio:4/3;border-radius:8px;"><div class="iw-placeholder-label">ANNOUNCEMENT · IMAGE</div></div>
+          <div>
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;" class="tracked-md"><span style="font-size:10px;color:var(--warm-grey);">ANNOUNCEMENT</span><span style="font-size:10px;color:var(--warm-grey);">·</span><span style="font-size:10px;color:var(--warm-grey);">June 13, 2025</span></div>
+            <h2 class="font-display" style="font-size:22px;font-weight:200;letter-spacing:-0.02em;line-height:1.15;margin:0 0 16px;">IWAVE launches its first product — Wavekart S redefines luxury watersports.</h2>
+            <div class="tracked-md" style="font-size:10px;margin-top:20px;border-bottom:1px solid var(--ink);padding-bottom:6px;display:inline-block;">READ ARTICLE →</div>
+          </div>
+        </article>
+      </a>
+      <a href="news-best-water-toy.html" style="display:block;color:inherit;text-decoration:none;">
+        <article style="display:flex;flex-direction:column;gap:20px;">
+          <div class="iw-placeholder" style="aspect-ratio:4/3;border-radius:8px;"><div class="iw-placeholder-label">FEATURE · IMAGE</div></div>
+          <div>
+            <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;" class="tracked-md"><span style="font-size:10px;color:var(--warm-grey);">FEATURE</span><span style="font-size:10px;color:var(--warm-grey);">·</span><span style="font-size:10px;color:var(--warm-grey);">June 13, 2025</span></div>
+            <h2 class="font-display" style="font-size:22px;font-weight:200;letter-spacing:-0.02em;line-height:1.15;margin:0 0 16px;">The best new water toy of 2025? Meet the IWAVE Wavekart.</h2>
+            <div class="tracked-md" style="font-size:10px;margin-top:20px;border-bottom:1px solid var(--ink);padding-bottom:6px;display:inline-block;">READ ARTICLE →</div>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
 </body>
 </html>

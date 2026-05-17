@@ -2,21 +2,201 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>About — iwave</title>
-<meta name="description" content="iwave — born at Yale, building the future of water.">
+<title>About iwave — Yale-born studio engineering the future of water.</title>
+<meta name="description" content="iwave is a Yale-born studio building the future of electric watercraft.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
-<style>html,body{margin:0;padding:0;background:#fff;font-family:'Manrope',system-ui,sans-serif;color:#0E0E0C}</style>
+<style>
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
+  *{box-sizing:border-box;}
+</style>
 </head>
-<body>
-<div id="root"></div>
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="shared/AboutPage.jsx"></script>
-<script type="text/babel">
-  ReactDOM.createRoot(document.getElementById('root')).render(<AboutPage/>);
-</script>
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 'about';</script>
+
+<!-- HERO -->
+<section style="padding:120px 60px 80px;text-align:center;max-width:1100px;margin:0 auto;">
+  <div class="tracked-xl" style="font-size:10px;color:var(--warm-grey);margin-bottom:18px;">ABOUT IWAVE</div>
+  <h1 class="font-display" style="font-size:clamp(56px,8vw,120px);font-weight:200;letter-spacing:-0.04em;line-height:0.98;margin:0 0 32px;">
+    Ride the future of water.
+  </h1>
+  <p style="font-size:20px;color:var(--ink-2);max-width:640px;margin:0 auto;line-height:1.5;">
+    The water is for everyone — and so is the thrill of riding it. Our mission: bring electric-powered watercraft to enthusiasts around the world.
+  </p>
+</section>
+
+<!-- OUR STORY -->
+<section style="padding:100px 60px;border-top:1px solid var(--hairline);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">OUR STORY</div>
+      <h2 class="font-display" style="font-size:clamp(40px,5vw,64px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0;">
+        Frustrated<br>by what existed.
+      </h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+        IWAVE was founded by a team of passionate designers, engineers, and water-sports lovers. Traditional watercraft were noisy, polluting, expensive, and hard to learn — so we set out to create something different.
+      </p>
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+        We imagined a product that would be easy to ride, safe for all ages, fully electric and sustainable, and designed with performance and style in mind.
+      </p>
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+        Three years of design, engineering, and more than <strong style="font-weight:500;color:var(--ink);">200 user tests</strong> on lakes, rivers, and open waters later — the result is the Wavekart series.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- YALE -->
+<section style="padding:120px 60px;background:#FAFAF8;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">NEW HAVEN, CT</div>
+      <h2 class="font-display" style="font-size:clamp(40px,5vw,72px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 28px;">Born at Yale.</h2>
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0 0 20px;">
+        IWAVE was proudly founded at Yale University, where innovation and impact meet. We are inspired every day by the mission to build a global electric water-sports brand, starting from Yale.
+      </p>
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+        From early prototypes to international pilots, the Yale ecosystem — and a community of creators and changemakers — has empowered every step of our journey.
+      </p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#fff;border:1px solid var(--hairline);border-radius:16px;padding:28px 32px;display:flex;align-items:baseline;gap:24px;">
+        <div class="font-display" style="font-size:40px;font-weight:200;letter-spacing:-0.02em;min-width:90px;">2024</div>
+        <div style="font-size:14px;color:var(--ink-2);line-height:1.5;">Tsai CITY Accelerator Program · Cohort member</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--hairline);border-radius:16px;padding:28px 32px;display:flex;align-items:baseline;gap:24px;">
+        <div class="font-display" style="font-size:40px;font-weight:200;letter-spacing:-0.02em;min-width:90px;">2025</div>
+        <div style="font-size:14px;color:var(--ink-2);line-height:1.5;">Tsai CITY Summer Fellow team</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section style="padding:120px 60px;">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">OUR MISSION</div>
+    <h2 class="font-display" style="font-size:clamp(40px,5vw,72px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 64px;max-width:700px;">
+      Redefining what<br>personal watercraft can be.
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink);">
+      <div style="padding:32px 28px 40px;">
+        <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:28px;">01</div>
+        <h3 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Accessible</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.65;margin:0;">No steep learning curve. Hop in and ride.</p>
+      </div>
+      <div style="padding:32px 28px 40px;border-left:1px solid var(--hairline);">
+        <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:28px;">02</div>
+        <h3 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Sustainable</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.65;margin:0;">100% electric. Zero emissions. Protect the waters we love.</p>
+      </div>
+      <div style="padding:32px 28px 40px;border-left:1px solid var(--hairline);">
+        <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:28px;">03</div>
+        <h3 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Fun</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.65;margin:0;">Joy for families, thrill seekers, and explorers alike.</p>
+      </div>
+      <div style="padding:32px 28px 40px;border-left:1px solid var(--hairline);">
+        <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);margin-bottom:28px;">04</div>
+        <h3 class="font-display" style="font-size:28px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Considered</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.65;margin:0;">Minimalist design. Attention to every detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section style="padding:120px 60px;background:var(--ink);color:#fff;">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:16px;">PRODUCT PHILOSOPHY</div>
+    <h2 class="font-display" style="font-size:clamp(40px,5vw,72px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 64px;max-width:800px;">
+      Every Wavekart is built<br>with a clear philosophy.
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(255,255,255,.2);">
+      <div style="padding:32px 24px 40px;">
+        <div class="font-mono tracked-sm" style="font-size:10px;opacity:.55;margin-bottom:28px;">01</div>
+        <h3 class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Cool design</h3>
+        <p style="font-size:13px;opacity:.75;line-height:1.65;margin:0;">Simplicity meets function.</p>
+      </div>
+      <div style="padding:32px 24px 40px;border-left:1px solid var(--hairline-light);">
+        <div class="font-mono tracked-sm" style="font-size:10px;opacity:.55;margin-bottom:28px;">02</div>
+        <h3 class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Intuitive &amp; stable</h3>
+        <p style="font-size:13px;opacity:.75;line-height:1.65;margin:0;">Built for confident riding by anyone.</p>
+      </div>
+      <div style="padding:32px 24px 40px;border-left:1px solid var(--hairline-light);">
+        <div class="font-mono tracked-sm" style="font-size:10px;opacity:.55;margin-bottom:28px;">03</div>
+        <h3 class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Built to last</h3>
+        <p style="font-size:13px;opacity:.75;line-height:1.65;margin:0;">High-quality materials, tested in extreme conditions.</p>
+      </div>
+      <div style="padding:32px 24px 40px;border-left:1px solid var(--hairline-light);">
+        <div class="font-mono tracked-sm" style="font-size:10px;opacity:.55;margin-bottom:28px;">04</div>
+        <h3 class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Modular &amp; upgradable</h3>
+        <p style="font-size:13px;opacity:.75;line-height:1.65;margin:0;">Accessories and software updates keep your ride evolving.</p>
+      </div>
+      <div style="padding:32px 24px 40px;border-left:1px solid var(--hairline-light);">
+        <div class="font-mono tracked-sm" style="font-size:10px;opacity:.55;margin-bottom:28px;">05</div>
+        <h3 class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 14px;">Community-driven</h3>
+        <p style="font-size:13px;opacity:.75;line-height:1.65;margin:0;">We listen to our riders and improve with every version.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="padding:120px 60px;border-bottom:1px solid var(--hairline);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">OUR TEAM</div>
+    <h2 class="font-display" style="font-size:clamp(40px,5vw,72px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0 0 48px;max-width:900px;">
+      A global team with deep roots<br>in engineering, industrial design,<br>and action sports.
+    </h2>
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;">
+      <p style="font-size:16px;line-height:1.75;color:var(--ink-2);margin:0;">
+        Our core team members have backgrounds from top international companies and brands — united by a shared vision: making water adventure electric, exciting, and accessible.
+      </p>
+      <div>
+        <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:24px;">OPERATIONS</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink);">
+          <div style="padding:24px 20px;">
+            <div class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 6px;">United States</div>
+            <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);">New Haven · CT</div>
+          </div>
+          <div style="padding:24px 20px;border-left:1px solid var(--hairline);">
+            <div class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 6px;">UAE</div>
+            <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);">Dubai</div>
+          </div>
+          <div style="padding:24px 20px;border-left:1px solid var(--hairline);">
+            <div class="font-display" style="font-size:22px;font-weight:300;letter-spacing:-0.02em;margin:0 0 6px;">Asia</div>
+            <div class="font-mono tracked-sm" style="font-size:10px;color:var(--warm-grey);">Shenzhen</div>
+          </div>
+        </div>
+        <p style="font-size:13px;color:var(--warm-grey);margin-top:28px;line-height:1.6;">
+          With a growing network of riders and partners worldwide.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="padding:100px 60px;background:#FAFAF8;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">INQUIRIES</div>
+      <h2 class="font-display" style="font-size:36px;font-weight:200;letter-spacing:-0.02em;margin:0 0 16px;">Reserve, partner, press.</h2>
+      <a href="mailto:info@iwavekart.com?subject=Wavekart%20Inquiry" style="font-size:18px;color:var(--ink);">info@iwavekart.com</a>
+    </div>
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">OWNER SUPPORT</div>
+      <h2 class="font-display" style="font-size:36px;font-weight:200;letter-spacing:-0.02em;margin:0 0 16px;">Service, parts, advice.</h2>
+      <a href="mailto:support@iwavekart.com?subject=Wavekart%20Support" style="font-size:18px;color:var(--ink);">support@iwavekart.com</a>
+    </div>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
 </body>
 </html>

@@ -2,32 +2,325 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>iwave — Wavekart</title>
-<meta name="description" content="The first electric jet go-kart. Engineered at Yale, refined for the open coast.">
+<title>iwave Wavekart — On water. Reimagined.</title>
+<meta name="description" content="The first electric water go-kart. Silent. Fast. Engineered at Yale.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/shared.css">
 <style>
-  html, body { margin: 0; padding: 0; background: #FFFFFF; }
-  body { font-family: 'Manrope', system-ui, sans-serif; color: #0E0E0C; }
-  #root > div.iw-frame {
-    width: 100%; height: auto !important; overflow: visible !important;
-  }
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;}
+  *{box-sizing:border-box;}
+  /* model toggle */
+  .model-card{background:#fff;border:1px solid var(--hairline);border-radius:24px;padding:60px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;box-shadow:0 30px 80px -40px rgba(14,14,12,.18);}
+  .toggle-pill{display:flex;gap:4px;padding:4px;background:#F2F1ED;border-radius:999px;}
+  .toggle-btn{padding:10px 28px;border-radius:999px;border:0;cursor:pointer;font-size:11px;font-family:inherit;transition:all .35s;letter-spacing:0.22em;text-transform:uppercase;}
+  .toggle-btn.active{background:var(--ink);color:#fff;}
+  .toggle-btn.inactive{background:transparent;color:var(--ink);}
 </style>
 </head>
-<body>
+<body class="font-body">
+<script>window.PAGE_ACTIVE = 'home';</script>
 
-<div id="root"></div>
+<!-- 1. HERO -->
+<section style="position:relative;height:760px;overflow:hidden;color:#fff;">
+  <div class="iw-water" style="position:absolute;inset:0;"></div>
+  <video class="hero-video" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 40%,rgba(0,0,0,0.55) 100%);z-index:1;"></div>
+  <div class="font-mono tracked-sm" style="position:absolute;top:24px;right:32px;font-size:9px;opacity:.55;padding:6px 10px;border:1px solid rgba(255,255,255,.3);border-radius:2px;z-index:2;">◉ OCEAN FOOTAGE</div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;">
+    <div class="tracked-xl" style="font-size:10px;opacity:.85;margin-bottom:24px;">IWAVE WAVEKART · 2026</div>
+    <h1 class="font-display" style="font-size:clamp(72px,10vw,156px);line-height:0.92;letter-spacing:-0.04em;font-weight:200;margin:0;max-width:1100px;">
+      On water.<br>Reimagined.
+    </h1>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;">
+      <p style="font-size:14px;opacity:.85;max-width:380px;line-height:1.7;margin:0;">
+        Electric. Silent. Instant. The first jet go-kart engineered for the water — not adapted to it.
+      </p>
+      <div style="display:flex;gap:12px;">
+        <a href="mailto:info@iwavekart.com?subject=Reserve%20a%20Wavekart" style="background:#fff;color:var(--ink);border:0;padding:14px 28px;border-radius:999px;font-size:13px;font-family:inherit;font-weight:500;text-decoration:none;">Reserve</a>
+        <a href="compare.html" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);padding:14px 28px;border-radius:999px;font-size:13px;font-family:inherit;text-decoration:none;">Compare models →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<!-- 2. SPEC STRIP -->
+<div class="font-mono tracked-sm" style="background:var(--ink);color:#fff;padding:20px 36px;display:flex;justify-content:space-between;font-size:11px;">
+  <span>52 KM/H</span><span>·</span>
+  <span>60 KG HULL</span><span>·</span>
+  <span>SILENT EV DRIVE</span><span>·</span>
+  <span>10-SEC BATTERY SWAP</span><span>·</span>
+  <span>0 EMISSIONS</span>
+</div>
 
-<script type="text/babel" src="shared/Layout.jsx"></script>
-<script type="text/babel" src="directions/ObsidianLight.jsx"></script>
+<!-- 3. INTRO -->
+<section style="padding:140px 60px;max-width:1100px;margin:0 auto;text-align:center;">
+  <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:32px;">INTRODUCTION</div>
+  <p class="font-display" style="font-size:clamp(32px,4vw,52px);line-height:1.3;font-weight:200;letter-spacing:-0.02em;margin:0;">
+    Hop in. Push the throttle. The water responds —<br>quietly, precisely, without compromise.
+  </p>
+</section>
 
-<script type="text/babel">
-  ReactDOM.createRoot(document.getElementById('root')).render(<ObsidianLightSite/>);
+<!-- 4. MODEL TOGGLE -->
+<section style="padding:40px 60px 100px;">
+  <div style="text-align:center;margin-bottom:48px;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">CHOOSE YOUR CRAFT</div>
+    <h2 class="font-display" style="font-size:clamp(40px,5vw,64px);font-weight:200;letter-spacing:-0.03em;margin:0;">Two models. One language.</h2>
+  </div>
+
+  <div style="display:flex;justify-content:center;margin-bottom:48px;">
+    <div class="toggle-pill">
+      <button id="btn-s" class="toggle-btn active tracked-md" onclick="switchModel('S')">Wavekart S</button>
+      <button id="btn-x" class="toggle-btn inactive tracked-md" onclick="switchModel('X')">Wavekart X</button>
+    </div>
+  </div>
+
+  <div class="model-card">
+    <!-- Left: info -->
+    <div>
+      <div id="model-tag" class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">COMPACT · 60 KG</div>
+      <h3 id="model-name" class="font-display" style="font-size:72px;font-weight:200;letter-spacing:-0.04em;margin:0 0 24px;line-height:1;">Wavekart S</h3>
+      <p id="model-desc" style="font-size:15px;line-height:1.7;color:var(--ink-2);margin-bottom:32px;">
+        For the solo adventurer. Light, fast, transportable. Charge in your garage, drift by lunch.
+      </p>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:14px;">FINISH · <span id="home-finish-name">BLUE</span></div>
+      <div id="home-swatches" style="display:flex;gap:10px;margin-bottom:36px;"></div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <a id="model-reserve" href="mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20S" style="background:var(--ink);color:#fff;border:0;padding:12px 24px;border-radius:999px;font-size:12px;font-family:inherit;font-weight:500;text-decoration:none;">Reserve · $8,999</a>
+        <a id="model-learn" href="wavekart-s.html" style="background:transparent;color:var(--ink);border:0;font-size:12px;text-decoration:none;">Learn more →</a>
+      </div>
+    </div>
+    <!-- Right: kart viewer -->
+    <div id="home-kart" style="position:relative;aspect-ratio:4/3;background:#FAFAF8;border-radius:12px;overflow:hidden;">
+      <div class="iw-kart" id="home-kart-css" style="--kart-color:#54AFC5;position:absolute;inset:0;transition:all .6s cubic-bezier(.2,.7,.3,1);">
+        <div class="iw-kart-body" id="home-kart-body" style="width:60%;height:38%;"></div>
+      </div>
+      <img class="kart-photo" id="home-kart-img" src="assets/wavekart/s-blue.png" alt="Wavekart S"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+      <div class="font-mono tracked-sm" id="home-kart-label" style="position:absolute;top:16px;left:16px;font-size:9px;color:var(--warm-grey);z-index:2;">MODEL · S</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SPECS COUNTUP -->
+<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+  <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">BY THE NUMBERS</div>
+  <h2 class="font-display" style="font-size:clamp(36px,5vw,64px);font-weight:200;letter-spacing:-0.03em;margin:0 0 80px;max-width:700px;">Every figure, considered.</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;">
+      <div class="font-display" style="font-size:80px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="52">52</span><span style="font-size:18px;color:var(--warm-grey);font-weight:300;">km/h</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">TOP SPEED</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:80px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="60">60</span><span style="font-size:18px;color:var(--warm-grey);font-weight:300;">kg</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">HULL WEIGHT</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:80px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="90">90</span><span style="font-size:18px;color:var(--warm-grey);font-weight:300;">min</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">RUN TIME</div>
+    </div>
+    <div style="border-top:1px solid var(--ink);padding-top:24px;padding-left:32px;border-left:1px solid var(--hairline);">
+      <div class="font-display" style="font-size:80px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
+        <span data-countup data-to="10">10</span><span style="font-size:18px;color:var(--warm-grey);font-weight:300;">sec</span>
+      </div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-top:16px;">BATTERY SWAP</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. LIFESTYLE -->
+<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+  <div style="margin-bottom:60px;max-width:1300px;margin-inline:auto;">
+    <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">IN PRACTICE</div>
+    <h2 class="font-display" style="font-size:clamp(40px,5.5vw,80px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0;max-width:800px;">
+      Built for every<br>kind of ride.
+    </h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1300px;margin:0 auto;">
+    <article style="display:flex;flex-direction:column;gap:20px;">
+      <div class="iw-placeholder" style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;">
+        <img src="assets/lifestyle/put-in-your-car.gif" alt="Put it in your car."
+          onload="this.style.opacity=1" onerror="this.style.opacity=0"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+        <div class="iw-placeholder-label">GIF · put-in-your-car.gif</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:26px;font-weight:300;letter-spacing:-0.02em;margin:0 0 8px;">Put it in your car.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">Sixty kilograms, SUV-friendly. Lake by lunch.</p>
+      </div>
+    </article>
+    <article style="display:flex;flex-direction:column;gap:20px;">
+      <div class="iw-placeholder" style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;">
+        <img src="assets/lifestyle/race-with-friends.gif" alt="Race with your friends."
+          onload="this.style.opacity=1" onerror="this.style.opacity=0"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+        <div class="iw-placeholder-label">GIF · race-with-friends.gif</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:26px;font-weight:300;letter-spacing:-0.02em;margin:0 0 8px;">Race with your friends.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">Fifty km/h, instant throttle, agile turns.</p>
+      </div>
+    </article>
+    <article style="display:flex;flex-direction:column;gap:20px;">
+      <div class="iw-placeholder" style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;">
+        <img src="assets/lifestyle/drift-as-wild.gif" alt="Drift as wild as you want."
+          onload="this.style.opacity=1" onerror="this.style.opacity=0"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+        <div class="iw-placeholder-label">GIF · drift-as-wild.gif</div>
+      </div>
+      <div>
+        <h3 class="font-display" style="font-size:26px;font-weight:300;letter-spacing:-0.02em;margin:0 0 8px;">Drift as wild as you want.</h3>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.6;margin:0;">Sharp turns, drifts through waves, on demand.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 7. TESTIMONIAL -->
+<section style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
+  <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:40px;">TESTIMONY</div>
+  <p class="font-display" style="font-size:clamp(28px,3.5vw,44px);font-weight:200;letter-spacing:-0.02em;line-height:1.4;max-width:1000px;margin:0 auto 32px;">
+    "No gas smell. Reef-friendly. Charge and go. The ideal choice for an eco-conscious ride."
+  </p>
+  <div class="tracked-md" style="font-size:10px;opacity:.55;">— ROBER S. · WAVEKART OWNER</div>
+</section>
+
+<!-- 8. YALE ORIGIN -->
+<section style="padding:120px 60px;border-bottom:1px solid var(--hairline);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto;">
+    <div>
+      <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:24px;">ORIGIN · NEW HAVEN</div>
+      <h2 class="font-display" style="font-size:clamp(36px,5vw,56px);font-weight:200;letter-spacing:-0.03em;margin:0 0 28px;line-height:1.05;">
+        Engineered<br>at Yale.
+      </h2>
+      <p style="font-size:15px;line-height:1.8;color:var(--ink-2);">
+        IWAVE was born inside a Yale engineering laboratory — a quiet question about whether watercraft could be both intimate and electric. Today, that thesis is in production.
+      </p>
+    </div>
+    <div class="iw-placeholder" style="aspect-ratio:4/5;border-radius:8px;">
+      <div class="iw-placeholder-label">FOUNDER · STUDIO</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FINAL CTA -->
+<section style="padding:120px 60px;text-align:center;background:var(--ink);color:#fff;">
+  <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:24px;">GET IN TOUCH</div>
+  <h3 class="font-display" style="font-size:clamp(40px,6vw,88px);font-weight:200;letter-spacing:-0.03em;margin:0 0 32px;line-height:1.05;">Reserve yours.</h3>
+  <p style="opacity:.75;max-width:480px;margin:0 auto 40px;font-size:15px;line-height:1.6;">
+    Each Wavekart is built to order. Reach out and our team will respond within 48 hours.
+  </p>
+  <a href="mailto:info@iwavekart.com?subject=Reserve%20a%20Wavekart" style="display:inline-block;padding:16px 36px;border-radius:999px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;">info@iwavekart.com →</a>
+</section>
+
+<script src="shared.js" defer></script>
+<script>
+(function() {
+  var COLORS_S_DATA = [
+    { name: 'BLUE',   hex: '#54AFC5', slug: 'blue'   },
+    { name: 'YELLOW', hex: '#F8F31E', slug: 'yellow' },
+    { name: 'RED',    hex: '#DC2626', slug: 'red'    },
+    { name: 'GREEN',  hex: '#13C633', slug: 'green'  },
+    { name: 'PINK',   hex: '#EC4899', slug: 'pink'   },
+    { name: 'GREY',   hex: '#C9C8CE', slug: 'grey'   },
+  ];
+  var COLORS_X_DATA = COLORS_S_DATA.map(function(c) {
+    return c.slug === 'blue' ? Object.assign({}, c, { hex: '#1AB6EF' }) : c;
+  });
+
+  var currentModel = 'S';
+  var currentColor = COLORS_S_DATA[0];
+
+  function getColorsData(model) {
+    return model === 'X' ? COLORS_X_DATA : COLORS_S_DATA;
+  }
+
+  function renderSwatches(model, activeSlug) {
+    var colors = getColorsData(model);
+    var container = document.getElementById('home-swatches');
+    if (!container) return;
+    container.innerHTML = '';
+    colors.forEach(function(c) {
+      var btn = document.createElement('button');
+      btn.style.cssText = 'width:30px;height:30px;border-radius:50%;cursor:pointer;padding:0;transition:border .2s;';
+      btn.style.background = c.hex;
+      btn.style.border = c.slug === activeSlug ? '2px solid var(--ink)' : '1px solid var(--hairline)';
+      btn.title = c.name;
+      btn.addEventListener('click', function() {
+        currentColor = c;
+        updateKart(model, c);
+        renderSwatches(model, c.slug);
+        document.getElementById('home-finish-name').textContent = c.name;
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function updateKart(model, color) {
+    var img = document.getElementById('home-kart-img');
+    var kartEl = document.getElementById('home-kart-css');
+    var kartBody = document.getElementById('home-kart-body');
+    var label = document.getElementById('home-kart-label');
+    if (img) {
+      img.style.opacity = '0';
+      img.src = 'assets/wavekart/' + model.toLowerCase() + '-' + color.slug + '.png';
+      img.onload = function() { img.style.opacity = '1'; };
+      img.onerror = function() { img.style.opacity = '0'; };
+    }
+    if (kartEl) kartEl.style.setProperty('--kart-color', color.hex);
+    if (kartBody) {
+      kartBody.style.width = model === 'X' ? '74%' : '60%';
+      kartBody.style.height = model === 'X' ? '44%' : '38%';
+    }
+    if (label) label.textContent = 'MODEL · ' + model;
+  }
+
+  window.switchModel = function(model) {
+    currentModel = model;
+    var colors = getColorsData(model);
+    currentColor = colors[0];
+
+    // toggle buttons
+    document.getElementById('btn-s').className = 'toggle-btn tracked-md ' + (model === 'S' ? 'active' : 'inactive');
+    document.getElementById('btn-x').className = 'toggle-btn tracked-md ' + (model === 'X' ? 'active' : 'inactive');
+
+    // update tag, name, desc
+    document.getElementById('model-tag').textContent = model === 'S' ? 'COMPACT · 60 KG' : 'GRAND · 92 KG';
+    document.getElementById('model-name').textContent = 'Wavekart ' + model;
+    document.getElementById('model-desc').textContent = model === 'S'
+      ? 'For the solo adventurer. Light, fast, transportable. Charge in your garage, drift by lunch.'
+      : 'For the dock-bound. Larger hull, greater stability — designed for resorts, yachts, and shared shorelines.';
+
+    var reserveLink = document.getElementById('model-reserve');
+    var learnLink = document.getElementById('model-learn');
+    if (reserveLink) {
+      reserveLink.href = 'mailto:info@iwavekart.com?subject=Reserve%20Wavekart%20' + model;
+      reserveLink.textContent = model === 'S' ? 'Reserve · $8,999' : 'Reserve · On request';
+    }
+    if (learnLink) {
+      learnLink.href = 'wavekart-' + model.toLowerCase() + '.html';
+    }
+
+    document.getElementById('home-finish-name').textContent = currentColor.name;
+    renderSwatches(model, currentColor.slug);
+    updateKart(model, currentColor);
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderSwatches('S', COLORS_S_DATA[0].slug);
+    updateKart('S', COLORS_S_DATA[0]);
+  });
+})();
 </script>
-
 </body>
 </html>
