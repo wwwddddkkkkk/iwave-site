@@ -214,6 +214,17 @@ body { overflow-x: hidden; max-width: 100%; }
   section[style*="padding:120px"] { padding-top: 60px !important; padding-bottom: 60px !important; }
   section[style*="padding:100px"] { padding-top: 52px !important; padding-bottom: 52px !important; }
 
+  /* Spec table: 2-col stat cards instead of single-column rows */
+  .iw-spec-dl { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .iw-spec-dl > div {
+    display: flex !important; flex-direction: column !important; gap: 6px !important;
+    padding: 14px 10px !important; border-top: 1px solid var(--hairline) !important;
+    border-left: none !important;
+  }
+  .iw-spec-dl > div:nth-child(even) { border-left: 1px solid var(--hairline) !important; }
+  .iw-spec-dl dt { font-size: 10px !important; color: var(--warm-grey) !important; letter-spacing: 0.04em !important; }
+  .iw-spec-dl dd { font-size: 13px !important; color: var(--ink) !important; font-weight: 400 !important; margin: 0 !important; }
+
   /* Compare table: horizontal scroll keeps 3-col readable */
   .iw-compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .iw-compare-table [style*="grid-template-columns:1.4fr 1fr 1fr"] {
