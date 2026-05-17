@@ -1,5 +1,7 @@
 /* iwave Wavekart — shared luxury system */
 
+html, body { max-width: 100%; overflow-x: hidden; }
+
 :root {
   --ivory: #F4F1EC;
   --ivory-2: #EBE6DD;

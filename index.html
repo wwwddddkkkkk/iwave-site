@@ -19,25 +19,46 @@
   .toggle-btn{padding:10px 28px;border-radius:999px;border:0;cursor:pointer;font-size:11px;font-family:inherit;transition:all .35s;letter-spacing:0.22em;text-transform:uppercase;}
   .toggle-btn.active{background:var(--ink);color:#fff;}
   .toggle-btn.inactive{background:transparent;color:var(--ink);}
+  @media(max-width:767px){
+    .iw-hero{height:560px !important;}
+    .iw-hero-inner{padding:0 20px 48px !important;}
+    .iw-hero-cta{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;margin-top:24px !important;}
+    .iw-hero-cta > div{flex-direction:column !important;}
+    .iw-spec-strip{flex-wrap:wrap !important;gap:8px 20px !important;padding:16px 20px !important;justify-content:center !important;}
+    .iw-intro{padding:60px 20px !important;}
+    .iw-toggle-section{padding:40px 20px 60px !important;}
+    .model-card{grid-template-columns:1fr !important;padding:28px 20px !important;gap:28px !important;border-radius:16px !important;}
+    #model-name{font-size:clamp(40px,12vw,64px) !important;}
+    .iw-specs-section{padding:60px 20px !important;}
+    .iw-specs-grid{grid-template-columns:repeat(2,1fr) !important;}
+    .iw-specs-grid > div{padding-right:16px !important;padding-left:16px !important;}
+    .iw-spec-num{font-size:52px !important;}
+    .iw-lifestyle-section{padding:60px 20px !important;}
+    .iw-lifestyle-grid{grid-template-columns:1fr !important;}
+    .iw-testimonial{padding:80px 20px !important;}
+    .iw-yale{padding:60px 20px !important;}
+    .iw-yale-grid{grid-template-columns:1fr !important;gap:32px !important;}
+    .iw-cta-dark{padding:80px 20px !important;}
+  }
 </style>
 </head>
 <body class="font-body">
 <script>window.PAGE_ACTIVE = 'home';</script>
 
 <!-- 1. HERO -->
-<section style="position:relative;height:760px;overflow:hidden;color:#fff;">
+<section class="iw-hero" style="position:relative;height:760px;overflow:hidden;color:#fff;">
   <div class="iw-water" style="position:absolute;inset:0;"></div>
   <video class="hero-video" autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
     <source src="assets/hero.mp4" type="video/mp4">
   </video>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 40%,rgba(0,0,0,0.55) 100%);z-index:1;"></div>
   <div class="font-mono tracked-sm" style="position:absolute;top:24px;right:32px;font-size:9px;opacity:.55;padding:6px 10px;border:1px solid rgba(255,255,255,.3);border-radius:2px;z-index:2;">◉ OCEAN FOOTAGE</div>
-  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;">
+  <div class="iw-hero-inner" style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;">
     <div class="tracked-xl" style="font-size:10px;opacity:.85;margin-bottom:24px;">IWAVE WAVEKART · 2026</div>
     <h1 class="font-display" style="font-size:clamp(72px,10vw,156px);line-height:0.92;letter-spacing:-0.04em;font-weight:200;margin:0;max-width:1100px;">
       On water.<br>Reimagined.
     </h1>
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;">
+    <div class="iw-hero-cta" style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:36px;">
       <p style="font-size:14px;opacity:.85;max-width:380px;line-height:1.7;margin:0;">
         Electric. Silent. Instant. The first jet go-kart engineered for the water — not adapted to it.
       </p>
@@ -50,7 +71,7 @@
 </section>
 
 <!-- 2. SPEC STRIP -->
-<div class="font-mono tracked-sm" style="background:var(--ink);color:#fff;padding:20px 36px;display:flex;justify-content:space-between;font-size:11px;">
+<div class="iw-spec-strip font-mono tracked-sm" style="background:var(--ink);color:#fff;padding:20px 36px;display:flex;justify-content:space-between;font-size:11px;">
   <span>52 KM/H</span><span>·</span>
   <span>60 KG HULL</span><span>·</span>
   <span>SILENT EV DRIVE</span><span>·</span>
@@ -59,7 +80,7 @@
 </div>
 
 <!-- 3. INTRO -->
-<section style="padding:140px 60px;max-width:1100px;margin:0 auto;text-align:center;">
+<section class="iw-intro" style="padding:140px 60px;max-width:1100px;margin:0 auto;text-align:center;">
   <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:32px;">INTRODUCTION</div>
   <p class="font-display" style="font-size:clamp(32px,4vw,52px);line-height:1.3;font-weight:200;letter-spacing:-0.02em;margin:0;">
     Hop in. Push the throttle. The water responds —<br>quietly, precisely, without compromise.
@@ -67,7 +88,7 @@
 </section>
 
 <!-- 4. MODEL TOGGLE -->
-<section style="padding:40px 60px 100px;">
+<section class="iw-toggle-section" style="padding:40px 60px 100px;">
   <div style="text-align:center;margin-bottom:48px;">
     <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">CHOOSE YOUR CRAFT</div>
     <h2 class="font-display" style="font-size:clamp(40px,5vw,64px);font-weight:200;letter-spacing:-0.03em;margin:0;">Two models. One language.</h2>
@@ -108,10 +129,10 @@
 </section>
 
 <!-- 5. SPECS COUNTUP -->
-<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+<section class="iw-specs-section" style="padding:120px 60px;border-top:1px solid var(--hairline);">
   <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">BY THE NUMBERS</div>
   <h2 class="font-display" style="font-size:clamp(36px,5vw,64px);font-weight:200;letter-spacing:-0.03em;margin:0 0 80px;max-width:700px;">Every figure, considered.</h2>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+  <div class="iw-specs-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
     <div style="border-top:1px solid var(--ink);padding-top:24px;padding-right:32px;">
       <div class="font-display" style="font-size:80px;font-weight:200;letter-spacing:-0.04em;line-height:1;display:flex;align-items:baseline;gap:8px;">
         <span data-countup data-to="52">52</span><span style="font-size:18px;color:var(--warm-grey);font-weight:300;">km/h</span>
@@ -140,14 +161,14 @@
 </section>
 
 <!-- 6. LIFESTYLE -->
-<section style="padding:120px 60px;border-top:1px solid var(--hairline);">
+<section class="iw-lifestyle-section" style="padding:120px 60px;border-top:1px solid var(--hairline);">
   <div style="margin-bottom:60px;max-width:1300px;margin-inline:auto;">
     <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:16px;">IN PRACTICE</div>
     <h2 class="font-display" style="font-size:clamp(40px,5.5vw,80px);font-weight:200;letter-spacing:-0.03em;line-height:1.05;margin:0;max-width:800px;">
       Built for every<br>kind of ride.
     </h2>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1300px;margin:0 auto;">
+  <div class="iw-lifestyle-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1300px;margin:0 auto;">
     <article style="display:flex;flex-direction:column;gap:20px;">
       <div class="iw-placeholder" style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden;">
         <img src="assets/lifestyle/put-in-your-car.GIF" alt="Put it in your car." data-gif-loop
@@ -188,7 +209,7 @@
 </section>
 
 <!-- 7. TESTIMONIAL -->
-<section style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
+<section class="iw-testimonial" style="padding:120px 60px;background:var(--ink);color:#fff;text-align:center;">
   <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:40px;">TESTIMONY</div>
   <p class="font-display" style="font-size:clamp(28px,3.5vw,44px);font-weight:200;letter-spacing:-0.02em;line-height:1.4;max-width:1000px;margin:0 auto 32px;">
     "No gas smell. Reef-friendly. Charge and go. The ideal choice for an eco-conscious ride."
@@ -197,8 +218,8 @@
 </section>
 
 <!-- 8. YALE ORIGIN -->
-<section style="padding:120px 60px;border-bottom:1px solid var(--hairline);">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto;">
+<section class="iw-yale" style="padding:120px 60px;border-bottom:1px solid var(--hairline);">
+  <div class="iw-yale-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto;">
     <div>
       <div class="tracked-md" style="font-size:10px;color:var(--warm-grey);margin-bottom:24px;">ORIGIN · NEW HAVEN</div>
       <h2 class="font-display" style="font-size:clamp(36px,5vw,56px);font-weight:200;letter-spacing:-0.03em;margin:0 0 28px;line-height:1.05;">
@@ -215,7 +236,7 @@
 </section>
 
 <!-- 9. FINAL CTA -->
-<section style="padding:120px 60px;text-align:center;background:var(--ink);color:#fff;">
+<section class="iw-cta-dark" style="padding:120px 60px;text-align:center;background:var(--ink);color:#fff;">
   <div class="tracked-md" style="font-size:10px;opacity:.55;margin-bottom:24px;">GET IN TOUCH</div>
   <h3 class="font-display" style="font-size:clamp(40px,6vw,88px);font-weight:200;letter-spacing:-0.03em;margin:0 0 32px;line-height:1.05;">Reserve yours.</h3>
   <p style="opacity:.75;max-width:480px;margin:0 auto 40px;font-size:15px;line-height:1.6;">

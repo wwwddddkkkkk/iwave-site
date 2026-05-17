@@ -24,7 +24,25 @@ const MAIL_SUPPORT = 'mailto:support@iwavekart.com?subject=Wavekart%20Support';
 
 const IG_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
 
+function injectMobileStyles() {
+  if (document.getElementById('iw-mobile-css')) return;
+  const s = document.createElement('style');
+  s.id = 'iw-mobile-css';
+  s.textContent = `
+    @media (max-width: 767px) {
+      html,body{overflow-x:hidden;}
+      .iw-header-inner{padding:10px 16px !important;}
+      .iw-nav{display:none !important;}
+      .iw-nav-ig{display:none !important;}
+      .iw-footer{grid-template-columns:1fr 1fr !important;gap:24px !important;padding:32px 20px 20px !important;}
+      .iw-footer-bottom{padding:12px 20px 28px !important;}
+    }
+  `;
+  document.head.appendChild(s);
+}
+
 function renderHeader(active) {
+  injectMobileStyles();
   const navLinks = [
     { href: 'wavekart-s.html', label: 'Wavekart S', key: 's' },
     { href: 'wavekart-x.html', label: 'Wavekart X', key: 'x' },
@@ -42,18 +60,18 @@ function renderHeader(active) {
   const header = document.createElement('header');
   header.style.cssText = 'position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline);';
   header.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 36px;">
+    <div class="iw-header-inner" style="display:flex;align-items:center;justify-content:space-between;padding:16px 36px;">
       <a href="index.html" aria-label="iwave home" style="display:inline-flex;align-items:center;">
         <img src="assets/logo.png" alt="IWAVE" class="iw-nav-logo" style="height:22px;width:auto;display:block;">
       </a>
-      <nav class="font-body" style="display:flex;gap:24px;">
+      <nav class="iw-nav font-body" style="display:flex;gap:24px;">
         ${navHTML}
       </nav>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <a href="https://www.instagram.com/iwave_watersports" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;color:var(--ink);text-decoration:none;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="https://www.instagram.com/iwave_watersports" target="_blank" rel="noopener" aria-label="Instagram" class="iw-nav-ig" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;color:var(--ink);text-decoration:none;">
           ${IG_SVG}
         </a>
-        <a href="${MAIL_BUY}" class="font-body" style="font-size:12px;color:var(--ink);text-decoration:none;padding:8px 16px;border:1px solid var(--ink);border-radius:999px;">Reserve</a>
+        <a href="${MAIL_BUY}" class="font-body" style="font-size:12px;color:var(--ink);text-decoration:none;padding:8px 16px;border:1px solid var(--ink);border-radius:999px;white-space:nowrap;">Reserve</a>
       </div>
     </div>
   `;
@@ -63,7 +81,7 @@ function renderHeader(active) {
 function renderFooter() {
   const footer = document.createElement('div');
   footer.innerHTML = `
-    <footer style="padding:60px 60px 30px;border-top:1px solid var(--ink);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;background:#fff;">
+    <footer class="iw-footer" style="padding:60px 60px 30px;border-top:1px solid var(--ink);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;background:#fff;">
       <div>
         <img src="assets/logo.png" alt="IWAVE" style="height:26px;width:auto;display:block;margin-bottom:20px;">
         <p style="font-size:12px;color:var(--warm-grey);max-width:280px;margin-bottom:24px;">Yale-born studio. Engineering the future of water.</p>
@@ -98,7 +116,7 @@ function renderFooter() {
         </ul>
       </div>
     </footer>
-    <div style="padding:20px 60px 40px;display:flex;justify-content:space-between;font-size:10px;color:var(--warm-grey);" class="tracked-sm">
+    <div class="iw-footer-bottom tracked-sm" style="padding:20px 60px 40px;display:flex;justify-content:space-between;font-size:10px;color:var(--warm-grey);">
       <span>© 2026 IWAVE</span>
       <span>NEW HAVEN · CT</span>
     </div>
