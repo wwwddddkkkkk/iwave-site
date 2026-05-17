@@ -34,7 +34,14 @@ function injectMobileStyles() {
       .iw-header-inner{padding:10px 16px !important;}
       .iw-nav{display:none !important;}
       .iw-nav-ig{display:none !important;}
-      .iw-footer{grid-template-columns:1fr 1fr !important;gap:24px !important;padding:32px 20px 20px !important;}
+      .iw-nav-logo{height:24px !important;}
+      .iw-hamburger{display:flex !important;}
+      .iw-footer{grid-template-columns:1fr 1fr 1fr !important;gap:16px !important;padding:32px 20px 20px !important;}
+      .iw-footer-contact-col{display:none !important;}
+      .iw-footer-contact-mobile{display:block !important;}
+      .iw-footer-logo{height:16px !important;}
+      .iw-footer-tagline{font-size:10px !important;max-width:none !important;margin-bottom:14px !important;}
+      .iw-footer ul{font-size:11px !important;}
       .iw-footer-bottom{padding:12px 20px 28px !important;}
     }
   `;
@@ -57,8 +64,13 @@ function renderHeader(active) {
     return `<a href="${l.href}" style="color:var(--ink);text-decoration:none;opacity:${isActive ? 1 : 0.65};border-bottom:${isActive ? '1px solid var(--ink)' : '1px solid transparent'};padding-bottom:2px;transition:opacity .2s;font-size:12px;">${l.label}</a>`;
   }).join('');
 
+  const mobileNavHTML = navLinks.map(l => {
+    const isActive = active === l.key;
+    return `<a href="${l.href}" style="color:var(--ink);text-decoration:none;font-size:16px;padding:16px 0;border-bottom:1px solid var(--hairline);font-weight:${isActive ? 400 : 300};display:block;opacity:${isActive ? 1 : 0.8};">${l.label}</a>`;
+  }).join('');
+
   const header = document.createElement('header');
-  header.style.cssText = 'position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline);';
+  header.style.cssText = 'position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--hairline);';
   header.innerHTML = `
     <div class="iw-header-inner" style="display:flex;align-items:center;justify-content:space-between;padding:16px 36px;">
       <a href="index.html" aria-label="iwave home" style="display:inline-flex;align-items:center;">
@@ -72,9 +84,37 @@ function renderHeader(active) {
           ${IG_SVG}
         </a>
         <a href="${MAIL_BUY}" class="font-body" style="font-size:12px;color:var(--ink);text-decoration:none;padding:8px 16px;border:1px solid var(--ink);border-radius:999px;white-space:nowrap;">Reserve</a>
+        <button class="iw-hamburger" aria-label="Menu" style="display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:5px 2px;width:32px;height:32px;">
+          <span class="iw-ham-line" style="display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s;transform-origin:center;"></span>
+          <span class="iw-ham-line" style="display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s;transform-origin:center;"></span>
+          <span class="iw-ham-line" style="display:block;width:14px;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s;transform-origin:center;"></span>
+        </button>
       </div>
     </div>
+    <nav class="iw-mobile-nav font-body" style="display:none;flex-direction:column;padding:4px 20px 24px;background:rgba(255,255,255,0.97);">
+      ${mobileNavHTML}
+      <a href="${MAIL_BUY}" style="display:block;margin-top:20px;text-align:center;padding:14px 20px;background:var(--ink);color:#fff;border-radius:999px;font-size:13px;text-decoration:none;">Reserve</a>
+    </nav>
   `;
+
+  const hamburger = header.querySelector('.iw-hamburger');
+  const mobileNav = header.querySelector('.iw-mobile-nav');
+  const lines = header.querySelectorAll('.iw-ham-line');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.style.display === 'flex';
+    mobileNav.style.display = isOpen ? 'none' : 'flex';
+    if (!isOpen) {
+      lines[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+      lines[1].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      lines[2].style.opacity = '0';
+    } else {
+      lines[0].style.transform = '';
+      lines[1].style.transform = '';
+      lines[2].style.opacity = '';
+    }
+  });
+
   document.body.prepend(header);
 }
 
@@ -83,11 +123,18 @@ function renderFooter() {
   footer.innerHTML = `
     <footer class="iw-footer" style="padding:60px 60px 30px;border-top:1px solid var(--ink);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;background:#fff;">
       <div>
-        <img src="assets/logo.png" alt="IWAVE" style="height:26px;width:auto;display:block;margin-bottom:20px;">
-        <p style="font-size:12px;color:var(--warm-grey);max-width:280px;margin-bottom:24px;">Yale-born studio. Engineering the future of water.</p>
+        <img src="assets/logo.png" alt="IWAVE" class="iw-footer-logo" style="height:26px;width:auto;display:block;margin-bottom:20px;">
+        <p class="iw-footer-tagline" style="font-size:12px;color:var(--warm-grey);max-width:280px;margin-bottom:24px;">Yale-born studio. Engineering the future of water.</p>
         <a href="https://www.instagram.com/iwave_watersports" target="_blank" rel="noopener" aria-label="iwave on Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;">
           ${IG_SVG}
         </a>
+        <div class="iw-footer-contact-mobile" style="display:none;">
+          <div class="tracked-md" style="font-size:9px;color:var(--warm-grey);margin-top:20px;margin-bottom:12px;">CONTACT</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:11px;">
+            <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">info@iwavekart.com</a></li>
+            <li><a href="${MAIL_SUPPORT}" style="color:inherit;text-decoration:none;">support@iwavekart.com</a></li>
+          </ul>
+        </div>
       </div>
       <div>
         <div class="tracked-md" style="font-size:9px;color:var(--warm-grey);margin-bottom:16px;">WAVEKART</div>
@@ -108,7 +155,7 @@ function renderFooter() {
           <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">Partnerships</a></li>
         </ul>
       </div>
-      <div>
+      <div class="iw-footer-contact-col">
         <div class="tracked-md" style="font-size:9px;color:var(--warm-grey);margin-bottom:16px;">CONTACT</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:12px;">
           <li><a href="${MAIL_INQ}" style="color:inherit;text-decoration:none;">info@iwavekart.com</a></li>

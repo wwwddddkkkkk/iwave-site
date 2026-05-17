@@ -169,7 +169,7 @@ body { overflow-x: hidden; max-width: 100%; }
   img, video, iframe { max-width: 100%; }
 
   /* Nav */
-  .iw-nav-logo { height: 14px !important; }
+  .iw-nav-logo { height: 24px !important; }
 
   /* Section horizontal padding — overrides all inline padding:Xpx 60px */
   section { padding-left: 20px !important; padding-right: 20px !important; }
