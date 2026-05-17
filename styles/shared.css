@@ -1,6 +1,7 @@
 /* iwave Wavekart — shared luxury system */
 
-html, body { max-width: 100%; overflow-x: hidden; }
+html { overflow-x: clip; }
+body { overflow-x: hidden; max-width: 100%; }
 
 :root {
   --ivory: #F4F1EC;
@@ -160,8 +161,56 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .iw-rule { height: 1px; background: var(--hairline); border: 0; }
 .iw-rule.light { background: var(--hairline-light); }
 
+/* ── MOBILE ─────────────────────────────────────────── */
 @media (max-width: 767px) {
+
+  /* Prevent any element from busting out of viewport */
+  * { min-width: 0; }
+  img, video, iframe { max-width: 100%; }
+
+  /* Nav */
   .iw-nav-logo { height: 14px !important; }
+
+  /* Section horizontal padding — overrides all inline padding:Xpx 60px */
+  section { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* ── Grid overrides via attribute selectors ── */
+  /* 3-col → 1-col */
+  [style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  /* 4-col → 2-col */
+  [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  /* 5-col → 2-col */
+  [style*="grid-template-columns:repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  /* 2-col equal → 1-col */
+  [style*="grid-template-columns:1fr 1fr"]       { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 2fr"]       { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:2fr 1fr"]       { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1.2fr 1fr"]     { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 1.4fr"]     { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1.4fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* Fixed-width sidebar → full width */
+  [style*="grid-template-columns:260px 1fr"]     { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:220px 1fr"]     { grid-template-columns: 1fr !important; }
+  /* Footer 4-col → 2-col (handled by class) */
+  .iw-footer { grid-template-columns: 1fr 1fr !important; gap: 24px !important; padding: 32px 20px 20px !important; }
+  .iw-footer-bottom { padding: 12px 20px 28px !important; }
+
+  /* Lifestyle GIFs: 2-col with shorter aspect ratio */
+  .iw-lifestyle-grid { grid-template-columns: repeat(2,1fr) !important; }
+  .iw-lifestyle-grid [style*="aspect-ratio:4/5"] { aspect-ratio: 4/3 !important; }
+
+  /* Spec strip: wrap cleanly, hide separator dots */
+  .iw-spec-strip { flex-wrap: wrap !important; gap: 6px 16px !important; padding: 14px 20px !important; justify-content: center !important; }
+  .iw-spec-strip span:nth-child(even) { display: none !important; }
+
+  /* Large stat numbers → smaller on mobile */
+  [style*="font-size:72px"] { font-size: 42px !important; }
+  [style*="font-size:80px"] { font-size: 42px !important; }
+
+  /* Header inner */
+  .iw-header-inner { padding: 10px 16px !important; }
+  .iw-nav          { display: none !important; }
+  .iw-nav-ig       { display: none !important; }
 }
 
 /* Number reveal */
