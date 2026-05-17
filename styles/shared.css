@@ -168,6 +168,11 @@ body { overflow-x: hidden; max-width: 100%; }
   * { min-width: 0; }
   img, video, iframe { max-width: 100%; }
 
+  /* FAQ / Q&A */
+  .faq-q { padding: 16px 0 !important; }
+  .faq-q span[style*="font-size:20px"] { font-size: 15px !important; }
+  .faq-a { font-size: 13px !important; line-height: 1.65 !important; }
+
   /* Nav */
   .iw-nav-logo { height: 24px !important; }
 
