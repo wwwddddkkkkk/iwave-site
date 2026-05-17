@@ -158,6 +158,10 @@
 .iw-rule { height: 1px; background: var(--hairline); border: 0; }
 .iw-rule.light { background: var(--hairline-light); }
 
+@media (max-width: 767px) {
+  .iw-nav-logo { height: 14px !important; }
+}
+
 /* Number reveal */
 @keyframes iw-fade-up {
   0% { opacity: 0; transform: translateY(12px); }

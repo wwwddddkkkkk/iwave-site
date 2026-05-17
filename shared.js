@@ -44,7 +44,7 @@ function renderHeader(active) {
   header.innerHTML = `
     <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 36px;">
       <a href="index.html" aria-label="iwave home" style="display:inline-flex;align-items:center;">
-        <img src="assets/logo.png" alt="IWAVE" style="height:22px;width:auto;display:block;">
+        <img src="assets/logo.png" alt="IWAVE" class="iw-nav-logo" style="height:22px;width:auto;display:block;">
       </a>
       <nav class="font-body" style="display:flex;gap:24px;">
         ${navHTML}
