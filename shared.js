@@ -123,7 +123,7 @@ function renderFooter() {
     <footer class="iw-footer" style="padding:60px 60px 30px;border-top:1px solid var(--ink);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;background:#fff;">
       <div>
         <img src="assets/logo.png" alt="IWAVE" class="iw-footer-logo" style="height:26px;width:auto;display:block;margin-bottom:20px;">
-        <p class="iw-footer-tagline" style="font-size:12px;color:var(--warm-grey);max-width:280px;margin-bottom:24px;">Yale-born studio. Engineering the future of water.</p>
+        <p class="iw-footer-tagline" style="font-size:12px;color:var(--warm-grey);max-width:280px;margin-bottom:24px;">Yale-born studio.<br>Engineering the future of water.</p>
         <a href="https://www.instagram.com/iwave_watersports" target="_blank" rel="noopener" aria-label="iwave on Instagram" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;">
           ${IG_SVG}
         </a>

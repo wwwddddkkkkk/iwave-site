@@ -225,12 +225,15 @@ body { overflow-x: hidden; max-width: 100%; }
   .iw-spec-dl dt { font-size: 10px !important; color: var(--warm-grey) !important; letter-spacing: 0.04em !important; }
   .iw-spec-dl dd { font-size: 13px !important; color: var(--ink) !important; font-weight: 400 !important; margin: 0 !important; }
 
-  /* Compare table: horizontal scroll keeps 3-col readable */
-  .iw-compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Compare table: fit full 3-col on screen, no scroll */
+  .iw-compare-table { overflow-x: visible !important; }
   .iw-compare-table [style*="grid-template-columns:1.4fr 1fr 1fr"] {
-    grid-template-columns: 1.4fr 1fr 1fr !important;
-    min-width: 560px;
+    grid-template-columns: 1fr 1.1fr 1.1fr !important;
+    min-width: 0 !important;
+    column-gap: 6px !important;
   }
+  .iw-compare-table [style*="font-size:14px"] { font-size: 11px !important; padding: 10px 0 !important; }
+  .iw-compare-table [style*="font-size:13px"] { font-size: 11px !important; }
 
   /* ── Collapsed grid border fixes ──────────────────────── */
   /* 4-col → 2-col: remove stray left borders on new left-column items,
@@ -243,6 +246,9 @@ body { overflow-x: hidden; max-width: 100%; }
   [style*="grid-template-columns:repeat(5,1fr)"] > div { border-left: none !important; }
   [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(even) { border-left: 1px solid var(--hairline-light) !important; }
   [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(n+3) { border-top: 1px solid var(--hairline-light) !important; }
+  /* 5-item orphan row: close off item 4 bottom and item 5 right */
+  [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(4) { border-bottom: 1px solid var(--hairline-light) !important; }
+  [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(5) { border-right: 1px solid var(--hairline-light) !important; }
 
   /* 3-col → 1-col: remove left borders, add top separator between stacked items */
   [style*="grid-template-columns:repeat(3,1fr)"] > div { border-left: none !important; }

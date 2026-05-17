@@ -19,6 +19,17 @@
   .faq-a p{margin:0 0 12px;}
   .faq-a ul{margin:0 0 12px;padding-left:20px;}
   .faq-a strong{color:var(--ink);font-weight:500;}
+  @media (max-width: 767px) {
+    section[style*="padding:120px 60px 80px"] { padding: 72px 20px 48px !important; }
+    section[style*="padding:60px;border-top"] { padding: 40px 20px !important; }
+    [style*="grid-template-columns:220px 1fr"] { grid-template-columns: 1fr !important; gap: 0 !important; }
+    [style*="grid-template-columns:220px 1fr"] > div:first-child { margin-bottom: 16px; }
+    .faq-q { padding: 18px 0; }
+    .faq-q span[style*="font-size:20px"] { font-size: 15px !important; }
+    .faq-a { font-size: 13px !important; line-height: 1.65 !important; }
+    h2[style*="font-size:28px"] { font-size: 20px !important; }
+    p[style*="font-size:18px"] { font-size: 14px !important; }
+  }
 </style>
 </head>
 <body class="font-body">
