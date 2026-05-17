@@ -44,8 +44,8 @@
     <div class="iw-kart" id="x-kart-css" style="--kart-color:#1AB6EF;position:absolute;inset:0;">
       <div class="iw-kart-body" style="width:74%;height:44%;"></div>
     </div>
-    <img class="kart-photo" id="x-kart-img" src="assets/wavekart/x-blue.png" alt="Wavekart X"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
+    <img class="kart-photo" id="x-kart-img" src="" alt="Wavekart X"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;z-index:2;">
     <div class="font-mono tracked-sm kart-label" style="position:absolute;bottom:24px;left:24px;font-size:10px;color:var(--warm-grey);z-index:1;">MODEL · X · BLUE</div>
   </div>
   <!-- Color picker -->
@@ -301,11 +301,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var kartEl = document.getElementById('x-kart-css');
   var kartLabel = document.querySelector('#x-viewer .kart-label');
 
+  function showPhoto() {
+    img.style.display = 'block';
+    kartEl.style.display = 'none';
+  }
+  function showKart() {
+    img.style.display = 'none';
+    kartEl.style.display = '';
+  }
+
   function setColor(c) {
     current = c;
     if (finishLabel) finishLabel.textContent = c.name;
-    if (img) { img.src = 'assets/wavekart/x-' + c.slug + '.png';
-    }
     if (kartEl) kartEl.style.setProperty('--kart-color', c.hex);
     if (kartLabel) kartLabel.textContent = 'MODEL · X · ' + c.name;
     swatchContainer.querySelectorAll('button').forEach(function(btn) {
@@ -313,6 +320,13 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.style.outline = btn.dataset.slug === c.slug ? '1px solid var(--ink)' : '';
       btn.style.outlineOffset = '3px';
     });
+    if (img) {
+      showKart();
+      img.onload = showPhoto;
+      img.onerror = showKart;
+      img.src = 'assets/wavekart/x-' + c.slug + '.png';
+      if (img.complete && img.naturalWidth > 0) { showPhoto(); }
+    }
   }
 
   COLORS.forEach(function(c) {
