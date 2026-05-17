@@ -41,11 +41,11 @@
 <!-- PRODUCT SHOT -->
 <section style="padding:20px 60px 60px;">
   <div id="x-viewer" style="position:relative;max-width:1200px;margin:0 auto;aspect-ratio:16/9;background:#FAFAF8;border-radius:24px;overflow:hidden;">
-    <div class="iw-kart" id="x-kart-css" style="--kart-color:#1AB6EF;position:absolute;inset:0;">
+    <div class="iw-kart" id="x-kart-css" style="--kart-color:#1AB6EF;position:absolute;inset:0;display:none;">
       <div class="iw-kart-body" style="width:74%;height:44%;"></div>
     </div>
     <img class="kart-photo" id="x-kart-img" src="assets/wavekart/x-blue.png" alt="Wavekart X"
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
     <div class="font-mono tracked-sm kart-label" style="position:absolute;bottom:24px;left:24px;font-size:10px;color:var(--warm-grey);">MODEL · X · BLUE</div>
   </div>
   <!-- Color picker -->
@@ -304,12 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function setColor(c) {
     current = c;
     if (finishLabel) finishLabel.textContent = c.name;
-    if (img) {
-      img.style.opacity = '0';
-      img.src = 'assets/wavekart/x-' + c.slug + '.png';
-      img.onload = function() { img.style.opacity = '1'; };
-      img.onerror = function() { img.style.opacity = '0'; };
-    }
+    if (img) { img.src = 'assets/wavekart/x-' + c.slug + '.png'; }
     if (kartEl) kartEl.style.setProperty('--kart-color', c.hex);
     if (kartLabel) kartLabel.textContent = 'MODEL · X · ' + c.name;
     swatchContainer.querySelectorAll('button').forEach(function(btn) {
