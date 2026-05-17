@@ -232,6 +232,25 @@ body { overflow-x: hidden; max-width: 100%; }
     min-width: 560px;
   }
 
+  /* ── Collapsed grid border fixes ──────────────────────── */
+  /* 4-col → 2-col: remove stray left borders on new left-column items,
+     add hairline between rows */
+  [style*="grid-template-columns:repeat(4,1fr)"] > div { border-left: none !important; }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(even) { border-left: 1px solid var(--hairline) !important; }
+  [style*="grid-template-columns:repeat(4,1fr)"] > div:nth-child(n+3) { border-top: 1px solid var(--hairline) !important; }
+
+  /* 5-col → 2-col: same pattern, hairline-light for dark-bg sections */
+  [style*="grid-template-columns:repeat(5,1fr)"] > div { border-left: none !important; }
+  [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(even) { border-left: 1px solid var(--hairline-light) !important; }
+  [style*="grid-template-columns:repeat(5,1fr)"] > div:nth-child(n+3) { border-top: 1px solid var(--hairline-light) !important; }
+
+  /* 3-col → 1-col: remove left borders, add top separator between stacked items */
+  [style*="grid-template-columns:repeat(3,1fr)"] > div { border-left: none !important; }
+  [style*="grid-template-columns:repeat(3,1fr)"] > div + div { border-top: 1px solid var(--hairline) !important; }
+
+  /* Product/about by-numbers h2 gap */
+  h2[style*="margin:0 0 80px"] { margin-bottom: 36px !important; }
+
   /* Header inner */
   .iw-header-inner { padding: 10px 16px !important; }
   .iw-nav          { display: none !important; }
