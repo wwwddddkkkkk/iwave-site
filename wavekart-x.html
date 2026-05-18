@@ -41,7 +41,7 @@
 <!-- PRODUCT SHOT -->
 <section style="padding:20px 60px 60px;">
   <div id="x-viewer" style="position:relative;max-width:1200px;margin:0 auto;aspect-ratio:16/9;background:#FAFAF8;border-radius:24px;overflow:hidden;">
-    <img class="kart-photo" id="x-kart-img" src="assets/wavekart/x-blue.png?v=2" alt="Wavekart X"
+    <img class="kart-photo" id="x-kart-img" src="assets/wavekart/x-blue.png" alt="Wavekart X"
       style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
     <div class="font-mono tracked-sm kart-label" style="position:absolute;bottom:24px;left:24px;font-size:10px;color:var(--warm-grey);z-index:1;">MODEL · X · BLUE</div>
   </div>
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function setColor(c) {
     current = c;
     if (finishLabel) finishLabel.textContent = c.name;
-    if (img) img.src = 'assets/wavekart/x-' + c.slug + '.png?v=2';
+    if (img) img.src = 'assets/wavekart/x-' + c.slug + '.png';
     if (kartLabel) kartLabel.textContent = 'MODEL · X · ' + c.name;
     swatchContainer.querySelectorAll('button').forEach(function(btn) {
       btn.style.border = btn.dataset.slug === c.slug ? '2px solid var(--ink)' : '1px solid var(--hairline)';
