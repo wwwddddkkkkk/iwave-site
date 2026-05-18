@@ -272,9 +272,14 @@
     { name: 'PINK',   hex: '#EC4899', slug: 'pink2'   },
     { name: 'GREY',   hex: '#C9C8CE', slug: 'gray2'   },
   ];
-  var COLORS_X_DATA = COLORS_S_DATA.map(function(c) {
-    return c.slug === 'blue' ? Object.assign({}, c, { hex: '#1AB6EF' }) : c;
-  });
+  var COLORS_X_DATA = [
+    { name: 'BLUE',   hex: '#1AB6EF', slug: 'blue'   },
+    { name: 'YELLOW', hex: '#F8F31E', slug: 'yellow' },
+    { name: 'RED',    hex: '#DC2626', slug: 'red'    },
+    { name: 'GREEN',  hex: '#13C633', slug: 'green'  },
+    { name: 'PINK',   hex: '#EC4899', slug: 'pink'   },
+    { name: 'GREY',   hex: '#C9C8CE', slug: 'grey'   },
+  ];
 
   var currentModel = 'S';
   var currentColor = COLORS_S_DATA[0];
