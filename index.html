@@ -133,7 +133,7 @@
     </div>
     <!-- Right: kart viewer -->
     <div id="home-kart" style="position:relative;aspect-ratio:4/3;background:#FAFAF8;border-radius:12px;overflow:hidden;">
-      <img class="kart-photo" id="home-kart-img" src="assets/wavekart/s-blue.png" alt="Wavekart S"
+      <img class="kart-photo" id="home-kart-img" src="assets/wavekart/s-blue.png?v=2" alt="Wavekart S"
         style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
       <div class="font-mono tracked-sm" id="home-kart-label" style="position:absolute;top:16px;left:16px;font-size:9px;color:var(--warm-grey);z-index:2;">MODEL · S</div>
     </div>
@@ -307,7 +307,7 @@
   function updateKart(model, color) {
     var img = document.getElementById('home-kart-img');
     var label = document.getElementById('home-kart-label');
-    if (img) img.src = 'assets/wavekart/' + model.toLowerCase() + '-' + color.slug + '.png';
+    if (img) img.src = 'assets/wavekart/' + model.toLowerCase() + '-' + color.slug + '.png?v=2';
     if (label) label.textContent = 'MODEL · ' + model;
   }
 
