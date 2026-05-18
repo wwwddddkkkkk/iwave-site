@@ -133,11 +133,8 @@
     </div>
     <!-- Right: kart viewer -->
     <div id="home-kart" style="position:relative;aspect-ratio:4/3;background:#FAFAF8;border-radius:12px;overflow:hidden;">
-      <div class="iw-kart" id="home-kart-css" style="--kart-color:#54AFC5;position:absolute;inset:0;transition:all .6s cubic-bezier(.2,.7,.3,1);">
-        <div class="iw-kart-body" id="home-kart-body" style="width:60%;height:38%;"></div>
-      </div>
       <img class="kart-photo" id="home-kart-img" src="assets/wavekart/s-blue.png" alt="Wavekart S"
-        style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s cubic-bezier(.2,.7,.3,1);">
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;">
       <div class="font-mono tracked-sm" id="home-kart-label" style="position:absolute;top:16px;left:16px;font-size:9px;color:var(--warm-grey);z-index:2;">MODEL · S</div>
     </div>
   </div>
@@ -309,20 +306,8 @@
 
   function updateKart(model, color) {
     var img = document.getElementById('home-kart-img');
-    var kartEl = document.getElementById('home-kart-css');
-    var kartBody = document.getElementById('home-kart-body');
     var label = document.getElementById('home-kart-label');
-    if (img) {
-      img.style.opacity = '0';
-      img.src = 'assets/wavekart/' + model.toLowerCase() + '-' + color.slug + '.png';
-      img.onload = function() { img.style.opacity = '1'; };
-      img.onerror = function() { img.style.opacity = '0'; };
-    }
-    if (kartEl) kartEl.style.setProperty('--kart-color', color.hex);
-    if (kartBody) {
-      kartBody.style.width = model === 'X' ? '74%' : '60%';
-      kartBody.style.height = model === 'X' ? '44%' : '38%';
-    }
+    if (img) img.src = 'assets/wavekart/' + model.toLowerCase() + '-' + color.slug + '.png';
     if (label) label.textContent = 'MODEL · ' + model;
   }
 
